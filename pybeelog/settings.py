@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'pybeelog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test',
+        'NAME': 'shop_50k',
         'USER' : 'postgres',
-        'PASSWORD' : 'postgres',
+        'PASSWORD' : 'ym468mj',
         'HOST' : '127.0.0.1',
         'PORT' : '5432',
     }
