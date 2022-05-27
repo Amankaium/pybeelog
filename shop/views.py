@@ -5,4 +5,5 @@ from .models import *
 
 class ProductHome(ListView):
     model = Product
+    template_name = 'shop/shop-'
 
