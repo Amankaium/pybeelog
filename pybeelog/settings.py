@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shop.apps.ShopConfig',
 ]
 
 MIDDLEWARE = [
@@ -78,9 +79,9 @@ WSGI_APPLICATION = 'pybeelog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test',
+        'NAME': 'shop_50k',
         'USER' : 'postgres',
-        'PASSWORD' : 'postgres',
+        'PASSWORD' : 'ym468mj',
         'HOST' : '127.0.0.1',
         'PORT' : '5432',
     }
@@ -109,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
