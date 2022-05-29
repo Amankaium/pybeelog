@@ -5,9 +5,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import *
 
 def shop(request):
-    products = Product.objects.all().order_by('slug')
-    paginator = Paginator(products, 6)
-    # paginator = Paginator(products, 6)
+    products = Product.objects.all().order_by('id')
+    paginator = Paginator(products, 8)
     page = request.GET.get('page')
     try:
         products = paginator.page(page)
@@ -15,25 +14,29 @@ def shop(request):
         products = paginator.page(1)
     except EmptyPage: 
         products = paginator.page(paginator.num_pages)
-    return render(request, 'shop/shop.html', {'products': products,})
+    return render(request, 'shop/shop.html', {'products': products})
 
 
 
 
-def product(request, product_slug):
-    product = get_object_or_404(Product, slug=product_slug)
+def product(request, id):
     
-    # product = Product.objects.get(id=product_id)
-    # product.update(view_count=product.view_count+1)
-    # com = product.comments.filter(product_slug=slug)
-
-    # if request.method == "POST":
-    #     comment = Review()
-    #     comment.product_id = id
-    #     comment.author = request.POST.get('author')
-    #     comment.email = request.POST.get('email')
-    #     comment.comment = request.POST.get('comment')
-    #     comment.save()
-    return render(request, 'shop/shop-details.html', {'product':product})
+    product = Product.objects.get(id=id)
+    product.view_count = product.view_count + 1
+    product.save()
+    com = product.review.filter(post_id=id)
+    feature_products = Product.objects.all().order_by('view_count')[:8]
+    related_products = Product.objects.all().order_by('view_count')[:4]
+    popular_products = Product.objects.all().order_by('view_count')[:3]
+    
+    if request.method == "POST":
+        comment = Review()
+        comment.post_id = id
+        comment.author = request.POST.get('name')
+        comment.email = request.POST.get('email')
+        comment.title = request.POST.get('review-title')
+        comment.comment = request.POST.get('review-body')
+        comment.save()
+    return render(request, 'shop/shop-details.html', {'product':product, 'comments': com, 'related_products': related_products, 'feature_products':feature_products, 'popular_products':popular_products})
 
 
