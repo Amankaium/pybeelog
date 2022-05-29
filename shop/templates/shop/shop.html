@@ -331,13 +331,13 @@
     
                     <div class="col-lg-6 col-md-6 ordering">
                         <div class="select-box">
-                            <label>Категории:</label>
+                            <label>Сортировать:</label>
                             <select>
-                                <option>Все Категории</option>
-                                <option>{{</option>
-                                <option>Latest</option>
-                                <option>Price: low to high</option>
-                                <option>Price: high to low</option>
+                                <option>По умолчанию</option>
+                                <option>Популярные</option>
+                                <option>Последние</option>
+                                <option>По низкой цена</option>
+                                <option>По высокой цене</option>
                             </select>
                         </div>
                     </div>
@@ -364,7 +364,7 @@
 
                                 <div class="sale">
                                     <span>{{product.cat}}</span>
-                                    <p>{{product.time_update|date:"d-m-Y H:i:s"}}</p>
+                                    <p>{{product.time_update|date:"d-m-Y"}}</p>
                                 </div>
                             </div>
 
@@ -382,18 +382,40 @@
                     </div>
                     {% endfor %}
 
+                    <!-- {% for p in page_obj %}
+                    <p>{{ p }}</p>
+                    {% endfor %}
+
+                    <nav>
+                        <ul>
+                            {% for pp in page_obj.paginator.page_range %}
+                            <li>
+                                <a href="?page={{ pp }}">{{ pp }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </nav> -->
                     <div class="col-lg-12 col-md-12">
                         <div class="pagination-area">
-                            <a href="#" class="prev page-numbers">
+                            {% if posts.has_previous %}
+                            <a href="?page={{ posts.previous_page_number }}" class="prev page-numbers">
                                 <i class="flaticon-left-arrow"></i>
                             </a>
-                            <a href="#" class="page-numbers">1</a>
-                            <span class="page-numbers current" aria-current="page">2</span>
-                            <a href="#" class="page-numbers">3</a>
-                            <a href="#" class="page-numbers">4</a>
-                            <a href="#" class="next page-numbers">
+                            {% endif %}
+                            {% for i in posts.paginator.page_range %}
+                                {% if i > posts.number|add:-3 and i < posts.number|add:3 %}
+                                    {% if posts.number == i %}
+                                        <span class="page-numbers current" aria-current="page">{{ posts.number }}</span>
+                                    {% else %}
+                                        <a href="?page={{ i }}" class="page-numbers">{{ i }}</a>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if posts.has_next %}
+                            <a href="?page={{ posts.next_page_number }}" class="next page-numbers">
                                 <i class="flaticon-right-arrow"></i>
                             </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
