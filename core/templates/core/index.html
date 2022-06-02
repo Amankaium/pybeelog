@@ -332,10 +332,11 @@
                 </div>
 
                 <div class="row">
+                    {% for t_p in trending_products %}
                     <div class="col-lg-3 col-md-6">
                         <div class="top-products-item">
                             <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/top-products/top-products-1.jpg" alt="image"></a>
+                                <a href="{{ t_p.get_absolute_url }}"><img src="{{ t_p.img.url }}" alt="image" height="650" width="650"></a>
 
                                 <ul class="products-action">
                                     <li>
@@ -356,261 +357,17 @@
 
                             <div class="products-content">
                                 <h3>
-                                    <a href="shop-details.html">Darling Oranges</a>
+                                    <a href="{{ t_p.get_absolute_url }}">{{ t_p.title }}</a>
                                 </h3>
                                 <div class="price">
-                                    <span class="new-price">$38.00</span>
-                                    <span class="old-price">$125.00</span>
+                                    <span class="new-price">${{ t_p.new_price }}</span>
+                                    <span class="old-price">${{ t_p.old_price }}</span>
                                 </div>
                                 
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="top-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/top-products/top-products-2.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="sale">
-                                    <span>Sale</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Strawberry</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$30.00</span>
-                                    <span class="old-price">$116.00</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="top-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/top-products/top-products-3.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="sale">
-                                    <span>Sale</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Cabbage</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$40.00</span>
-                                    <span class="old-price">$179.00</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="top-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/top-products/top-products-4.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="sale">
-                                    <span>Sale</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Nectarine</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$45.00</span>
-                                    <span class="old-price">$135.00</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="top-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/top-products/top-products-5.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="sale">
-                                    <span>Sale</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Seasoned Tomatoes</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$68.00</span>
-                                    <span class="old-price">$168.00</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="top-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/top-products/top-products-6.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="sale">
-                                    <span>Sale</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Seasoned Carrot</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$30.00</span>
-                                    <span class="old-price">$130.00</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="top-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/top-products/top-products-7.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="sale">
-                                    <span>Sale</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Pineapple</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$39.00</span>
-                                    <span class="old-price">$139.00</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="top-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/top-products/top-products-8.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="sale">
-                                    <span>Sale</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Fresh Banana</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$17.00</span>
-                                    <span class="old-price">$115.00</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                {% endfor %}
                 </div>
             </div>
         </section>
@@ -625,12 +382,13 @@
                     <h2>Featured  Products</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                 </div>
-
+                
                 <div class="row">
+                    {% for f_p in featured_products %}
                     <div class="col-lg-3 col-md-6">
                         <div class="featured-products-item">
                             <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-1.jpg" alt="image"></a>
+                                <a href="{{ f_p.get_absolute_url }}"><img src="{{ f_p.img.url }}" alt="image" height="550" width="550"></a>
 
                                 <ul class="products-action">
                                     <li>
@@ -651,258 +409,18 @@
 
                             <div class="products-content">
                                 <h3>
-                                    <a href="shop-details.html">Bean</a>
+                                    <a href="{ f_p.get_absolute_url }}">{{ f_p.title }}</a>
                                 </h3>
                                 <div class="price">
-                                    <span class="new-price">$3.00</span>
-                                    <span class="old-price">$12.00</span>
+                                    <span class="new-price">${{ f_p.new_price }}</span>
+                                    <span class="old-price">${{ f_p.old_price }}</span>
                                 </div>
                                 
                             </div>
                         </div>
+                    
                     </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="featured-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-2.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="new">
-                                    <span>New</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Pomegranate</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$30.00</span>
-                                    <span class="old-price">$122.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="featured-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-3.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                   
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="new">
-                                    <span>New</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Avocado</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$40.00</span>
-                                    <span class="old-price">$140.00</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="featured-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-4.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="new">
-                                    <span>New</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Capsicum</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$33.00</span>
-                                    <span class="old-price">$133.00</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="featured-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-5.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="new">
-                                    <span>New</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">WaterMelon</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$23.00</span>
-                                    <span class="old-price">$125.00</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="featured-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-6.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="new">
-                                    <span>New</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Crab Apples</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$45.00</span>
-                                    <span class="old-price">$120.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="featured-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-7.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="new">
-                                    <span>New</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Pea-nut</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$65.00</span>
-                                    <span class="old-price">$156.00</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="featured-products-item">
-                            <div class="products-image">
-                                <a href="shop-details.html"><img src="assets/img/featured-products/featured-products-8.jpg" alt="image"></a>
-
-                                <ul class="products-action">
-                                    <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <div class="new">
-                                    <span>New</span>
-                                </div>
-                            </div>
-
-                            <div class="products-content">
-                                <h3>
-                                    <a href="shop-details.html">Mint</a>
-                                </h3>
-                                <div class="price">
-                                    <span class="new-price">$49.00</span>
-                                    <span class="old-price">$133.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -920,9 +438,10 @@
                 </div>
 
                 <div class="top-products-slider owl-carousel owl-theme">
+                    {% for b_s_p in best_seller_products %}
                     <div class="top-products-item">
                         <div class="products-image">
-                            <a href="shop-details.html"><img src="assets/img/top-products/top-products-1.jpg" alt="image"></a>
+                            <a href="{{ b_s_p.get_absolute_url }}"><img src="{{ b_s_p.img.url }}" alt="image" height="650" width="650"></a>
 
                             <ul class="products-action">
                                 <li>
@@ -943,243 +462,15 @@
 
                         <div class="products-content">
                             <h3>
-                                <a href="shop-details.html">Darling Oranges</a>
+                                <a href="{{ b_s_p.get_absolute_url }}">{{ b_s_p.title }}</a>
                             </h3>
                             <div class="price">
-                                <span class="new-price">$38.00</span>
-                                <span class="old-price">$125.00</span>
+                                <span class="new-price">${{ b_s_p.new_price }}</span>
+                                <span class="old-price">${{ b_s_p.old_price }}</span>
                             </div>
                         </div>
                     </div>
-
-                    <div class="top-products-item">
-                        <div class="products-image">
-                            <a href="shop-details.html"><img src="assets/img/top-products/top-products-2.jpg" alt="image"></a>
-
-                            <ul class="products-action">
-                                <li>
-                                    <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                        <i class="flaticon-search"></i>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="sale">
-                                <span>Sale</span>
-                            </div>
-                        </div>
-
-                        <div class="products-content">
-                            <h3>
-                                <a href="shop-details.html">Strawberry</a>
-                            </h3>
-                            <div class="price">
-                                <span class="new-price">$30.00</span>
-                                <span class="old-price">$116.00</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="top-products-item">
-                        <div class="products-image">
-                            <a href="shop-details.html"><img src="assets/img/top-products/top-products-3.jpg" alt="image"></a>
-
-                            <ul class="products-action">
-                                <li>
-                                    <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                        <i class="flaticon-search"></i>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="sale">
-                                <span>Sale</span>
-                            </div>
-                        </div>
-
-                        <div class="products-content">
-                            <h3>
-                                <a href="shop-details.html">Cabbage</a>
-                            </h3>
-                            <div class="price">
-                                <span class="new-price">$40.00</span>
-                                <span class="old-price">$179.00</span>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="top-products-item">
-                        <div class="products-image">
-                            <a href="shop-details.html"><img src="assets/img/top-products/top-products-4.jpg" alt="image"></a>
-
-                            <ul class="products-action">
-                                <li>
-                                    <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                        <i class="flaticon-search"></i>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="sale">
-                                <span>Sale</span>
-                            </div>
-                        </div>
-
-                        <div class="products-content">
-                            <h3>
-                                <a href="shop-details.html">Nectarine</a>
-                            </h3>
-                            <div class="price">
-                                <span class="new-price">$45.00</span>
-                                <span class="old-price">$135.00</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="top-products-item">
-                        <div class="products-image">
-                            <a href="shop-details.html"><img src="assets/img/top-products/top-products-5.jpg" alt="image"></a>
-
-                            <ul class="products-action">
-                                <li>
-                                    <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                        <i class="flaticon-search"></i>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="sale">
-                                <span>Sale</span>
-                            </div>
-                        </div>
-
-                        <div class="products-content">
-                            <h3>
-                                <a href="shop-details.html">Seasoned Tomatoes</a>
-                            </h3>
-                            <div class="price">
-                                <span class="new-price">$68.00</span>
-                                <span class="old-price">$168.00</span>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="top-products-item">
-                        <div class="products-image">
-                            <a href="shop-details.html"><img src="assets/img/top-products/top-products-6.jpg" alt="image"></a>
-
-                            <ul class="products-action">
-                                <li>
-                                    <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                        <i class="flaticon-search"></i>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="sale">
-                                <span>Sale</span>
-                            </div>
-                        </div>
-
-                        <div class="products-content">
-                            <h3>
-                                <a href="shop-details.html">Seasoned Carrot</a>
-                            </h3>
-                            <div class="price">
-                                <span class="new-price">$30.00</span>
-                                <span class="old-price">$130.00</span>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="top-products-item">
-                        <div class="products-image">
-                            <a href="shop-details.html"><img src="assets/img/top-products/top-products-7.jpg" alt="image"></a>
-
-                            <ul class="products-action">
-                                <li>
-                                    <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                        <i class="flaticon-search"></i>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="sale">
-                                <span>Sale</span>
-                            </div>
-                        </div>
-
-                        <div class="products-content">
-                            <h3>
-                                <a href="shop-details.html">Pineapple</a>
-                            </h3>
-                            <div class="price">
-                                <span class="new-price">$39.00</span>
-                                <span class="old-price">$139.00</span>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="top-products-item">
-                        <div class="products-image">
-                            <a href="shop-details.html"><img src="assets/img/top-products/top-products-8.jpg" alt="image"></a>
-
-                            <ul class="products-action">
-                                <li>
-                                    <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
-                                </li>
-                                
-                                <li>
-                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                        <i class="flaticon-search"></i>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="sale">
-                                <span>Sale</span>
-                            </div>
-                        </div>
-
-                        <div class="products-content">
-                            <h3>
-                                <a href="shop-details.html">Fresh Banana</a>
-                            </h3>
-                            <div class="price">
-                                <span class="new-price">$17.00</span>
-                                <span class="old-price">$115.00</span>
-                            </div>
-                            
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section>
@@ -1488,32 +779,32 @@
         <!-- End QuickView Modal Area -->
         
         <!-- Jquery Slim JS -->
-        <script src="assets/js/jquery.min.js"></script>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
         <!-- Popper JS -->
-        <script src="assets/js/popper.min.js"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
         <!-- Bootstrap JS -->
-        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
         <!-- Meanmenu JS -->
-        <script src="assets/js/jquery.meanmenu.js"></script>
+        <script src="{% static 'js/jquery.meanmenu.js' %}"></script>
         <!-- Nice Select JS -->
-        <script src="assets/js/jquery.nice-select.min.js"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
         <!-- Owl Carousel JS -->
-        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
         <!-- Magnific Popup JS -->
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
         <!-- Odometer JS -->
-        <script src="assets/js/odometer.min.js"></script>
+        <script src="{% static 'js/odometer.min.js' %}"></script>
         <!-- Jquery Appear JS -->
-        <script src="assets/js/jquery.appear.min.js"></script>
+        <script src="{% static 'js/jquery.appear.min.js' %}"></script>
         <!-- Ajaxchimp JS -->
-		<script src="assets/js/jquery.ajaxchimp.min.js"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
 		<!-- Form Validator JS -->
-		<script src="assets/js/form-validator.min.js"></script>
+        <script src="{% static 'js/form-validator.min.js' %}"></script>
 		<!-- Contact JS -->
-        <script src="assets/js/contact-form-script.js"></script>
+        <script src="{% static 'js/contact-form-script.js' %}"></script>
         <!-- Wow JS -->
-        <script src="assets/js/wow.min.js"></script>
+        <script src="{% static 'js/wow.min.js' %}"></script>
         <!-- Custom JS -->
-        <script src="assets/js/main.js"></script>
+        <script src="{% static 'js/main.js' %}"></script>
     </body>
 </html>
