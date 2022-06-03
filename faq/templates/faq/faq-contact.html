@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block faqcontact %}
+
+
+
+<!-- Start FAQ Contact Area -->
+<div class="faq-contact-area ptb-100">
+	<div class="container">
+		<div class="section-title">
+			<h2>Do You Have Any Questions?</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+
+		<div class="faq-contact-form">
+			<form method="POST">
+			{% csrf_token %}
+			<div  id="contactForm">
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="form-group">
+							{{ form.name }}
+							<div class="help-block with-errors">{{ form.name.errors }}</div>
+						</div>
+					</div>
+
+					<div class="col-lg-6 col-md-6">
+						<div class="form-group">
+							{{ form.email }}
+							<div class="help-block with-errors">{{ form.email.errors }}</div>
+						</div>
+					</div>
+
+					<div class="col-lg-6 col-md-6">
+						<div class="form-group">
+							{{ form.phone }}
+							<div class="help-block with-errors">{{ form.number.errors }}</div>
+						</div>
+					</div>
+
+					<div class="col-lg-6 col-md-6">
+						<div class="form-group">
+							{{ form.title }}
+							<div class="help-block with-errors">{{ form.title.errors }}</div>
+						</div>
+					</div>
+
+					<div class="col-lg-12 col-md-12">
+						<div class="form-group">
+							{{ form.message }}
+							<div class="help-block with-errors">{{ form.message.errors }}</div>
+						</div>
+					</div>
+
+					
+					<div class="col-lg-12 col-md-12">
+						<div class="send-btn">
+							<button type="submit" class="default-btn">
+								Send Message
+							</button>
+
+						</div>
+						<div id="msgSubmit" class="h3 text-center hidden"></div>
+						<div class="clearfix"></div>
+					</div>
+
+				</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- End FAQ Contact Area -->
+{% endblock %}
