@@ -22,11 +22,14 @@ class FeedbackView(FormView, ListView):
 
 
 
-class SubscribeView(CreateView):
-    model = Subscribe
-    form_class = SubscribeForm
-    success_url = '/'
-    template_name = 'contact.html'
+def subscribe(request):
+    if request.method == 'POST':
+        sub = Subscribe()
+        sub.email = request.POST.get('email')
+        sub.save()
+    return redirect('contact/contact.html')
+
+
 
 
 
