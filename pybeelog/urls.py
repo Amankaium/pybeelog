@@ -23,8 +23,12 @@ from contact.views import *
 urlpatterns = [
     path('', index, name='home'),
     path('admin/', admin.site.urls),
+
     path('contact/', include('contact.urls')),
     path('faq/', include('faq.urls')),
+
+    path('shop/', include('shop.urls')),
+
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
