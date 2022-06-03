@@ -1,7 +1,23 @@
 {% extends 'base.html' %}
 
 {% block page %}
-
+	<div class="page-banner-area item-bg3">
+		<div class="d-table">
+			<div class="d-table-cell">
+				<div class="container">
+					<div class="page-banner-content">
+						<h2>FAQ</h2>
+						<ul>
+							<li>
+								<a href="index.html">Home</a>
+							</li>
+							<li>FAQ</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Start FAQ Area -->
 	<section class="faq-area ptb-100">
 		<div class="container">
@@ -9,34 +25,21 @@
 				<h2>Asked Questions</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 			</div>
-			
+
 			<div class="faq-accordion">
 				<ul class="accordion">
-					{% for c in faq %}
+					{% for faq in faqs %}
 					<li class="accordion-item">
-						<a class="accordion-title active" href="javascript:void(0)">
-							<i class='bx bx-plus'></i>
-							{{ c.title }}
-						</a>
-
-						<p class="accordion-content collapse show">
-							{{ c.description }}
-						</p>
-					</li>
-					{% endfor %}
-
-					<!--<li class="accordion-item">
 						<a class="accordion-title" href="javascript:void(0)">
 							<i class='bx bx-plus'></i>
-							Lorem ipsum
+							{{ faq.title }}
 						</a>
 
 						<p class="accordion-content">
-							 ultrices gravida.
+							{{ faq.description }}
 						</p>
-					</li>-->
-
-					
+					</li>
+					{% endfor %}
 				</ul>
 			</div>
 		</div>

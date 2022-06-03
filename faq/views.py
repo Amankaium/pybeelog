@@ -12,7 +12,7 @@ class FaqView(ListView, FormView):
     template_name = 'faq/faq.html'
     success_url = '/faq/'
     model = Faq
-    context_object_name = 'faq'
+    context_object_name = 'faqs'
     form_class = FaqFeedbackForm
 
     def form_valid(self, form):
