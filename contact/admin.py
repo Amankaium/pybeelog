@@ -1,18 +1,15 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Feedback, OurContact, Subscribe
+from .models import Feedback, Subscribe
 
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name',
-                    'phone', 'title', 'checked', "created_at")
+                    'phone', 'email','title',"created_at")
     list_display_links = ('id', 'title')
-    search_fields = ('title', 'message',)
-    list_editable = ('checked',)
-    list_filter = ('checked',)
-    fields = ('first_name', 'last_name', 'phone', 'email', 'title', 'message', "created_at",
-              'checked')
+    search_fields = ('title', 'message')
+    fields = ('first_name', 'last_name', 'phone', 'email', 'title', 'message', "created_at")
     readonly_fields = ('first_name', 'last_name', 'title',
                        'message', 'phone', 'email', "created_at")
 
@@ -27,7 +24,3 @@ class SubscribeAdmin(admin.ModelAdmin):
     readonly_fields = ('email', "date")
 
 
-@admin.register(OurContact)
-class OurContact(admin.ModelAdmin):
-    list_display = ("title", "description", "description2")
-    fields = ("title", "description", "description2")

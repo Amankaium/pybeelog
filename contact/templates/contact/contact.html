@@ -2,7 +2,25 @@
 {% load contact_tags %}
 
 {% block page %}
-
+ <!-- Start Page Banner -->
+ <div class="page-banner-area item-bg4">
+	<div class="d-table">
+		<div class="d-table-cell">
+			<div class="container">
+				<div class="page-banner-content">
+					<h2>Contact</h2>
+					<ul>
+						<li>
+							<a href="index.html">Home</a>
+						</li>
+						<li>Contact</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Page Banner -->
 <!-- Start Contact Info Area -->
 <section class="contact-info-area pt-100 pb-70">
 	<div class="container">
@@ -11,11 +29,12 @@
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="contact-info-box">
 					<div class="icon">
-						<i class='bx bx-envelope'></i>
+						<i class="bx bx-envelope"></i>
 					</div>
-					<h3>{{ contact.first.title }}</h3>
-					<p><a href="mailto:{{ contact.first.description }}">{{ contact.first.description }}</a></p>
-					<p><a href="mailto:{{ contact.first.description2 }}">{{ contact.first.description2 }}</a></p>
+
+					<h3>Email Here</h3>
+					<p><a href="mailto:hello@orgo.com">hello@orgo.com</a></p>
+					<p><a href="mailto:support@orgo.com">support@orgo.com</a></p>
 				</div>
 			</div>
 			
@@ -23,26 +42,23 @@
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="contact-info-box">
 					<div class="icon">
-						<i class='bx bx-map'></i>
+						<i class="bx bx-map"></i>
 					</div>
-					{% for i in contact %}
-						{% if i.title == 'Location Here' %}
-							<h3>{{ i.title }}</h3>
-							<p>{{ i.description }}</p>
-						{% endif %}	
-					{% endfor %}
+
+					<h3>Location Here</h3>
+					<p>2750 Quadra Street Victoria Road, New York, Canada</p>
 				</div>
 			</div>
 
 			<div class="col-lg-4 col-md-6 col-sm-6">
 				<div class="contact-info-box">
 					<div class="icon">
-						<i class='bx bxs-phone-call'></i>
+						<i class="bx bxs-phone-call"></i>
 					</div>
 
-					<h3>{{ contact.last.title }}</h3>
-					<p><a href="tel:{{ contact.last.description }}">{{ contact.last.description }}</a></p>
-					<p><a href="tel:{{ contact.last.description2 }}">{{ contact.last.description2 }}</a></p>
+					<h3>Call Here</h3>
+					<p><a href="tel:1234567890">+123 456 7890</a></p>
+					<p><a href="tel:2414524526">+241 452 4526</a></p>
 				</div>
 			</div>
 		</div>
