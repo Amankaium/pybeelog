@@ -12,9 +12,9 @@ def Blog(request):
         blog = paginator.page(page)
     except PageNotAnInteger:
         blog = paginator.page(1)
-    except EmptyPage: 
-        blog = paginator.page(paginator.num_pages)
-    return render(request, 'blog/blog-1.html', {'information': information})
+#    except EmptyPage: 
+#        blog = paginator.page(paginator.num_pages)
+    return render(request, 'blog/blog-1.html', {'information': 'information'})
 
 
 
