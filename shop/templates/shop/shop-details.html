@@ -328,7 +328,9 @@
                     <div class="col-lg-8">
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
-                                <div class="product-details-image"></div>
+                                <div class="product-details-image">
+                                    <a href="{{ product.get_absolute_url }}"><img src="{{ product.img.url }}" alt="image" height="650" width="650"></a>
+                                </div>
                             </div>
         
                             <div class="col-lg-6 col-md-12">
@@ -553,7 +555,7 @@
                                 {% for popular_product in popular_products %}
                                 <article class="item">
                                     <a href="{{ popular_product.get_absolute_url }}" class="thumb">
-                                        <span class="fullimage cover bg1" role="img"></span>
+                                        <span class="fullimage cover bg1" role="img"><img src="{{ popular_product.img.url }}" alt="image" height="650" width="650"></span>
                                     </a>
                                     <div class="info">
                                         <span>${{ popular_product.new_price }}</span>
