@@ -30,16 +30,22 @@
                     </div>
     
                     <div class="col-lg-6 col-md-6 ordering">
-                        <div class="select-box">
-                            <label>Sort By:</label>
-                            <select>
-                                <option>Default</option>
-                                <option>Popularity</option>
-                                <option>Latest</option>
-                                <option>Price: low to high</option>
-                                <option>Price: high to low</option>
-                            </select>
-                        </div>
+                        
+                        <form action="{% url 'shop' %}" method="get" id="sortProduct" class="orderby">
+
+                            <div class="box sort pull-right">
+                              <span>Sort By:</span>
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Default
+                              </button>
+                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuButton">
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="Default"></li>
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="Popularity"></li>
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="Price: low to high"></li>
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="Price: high to low"></li>
+                             </ul>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 
