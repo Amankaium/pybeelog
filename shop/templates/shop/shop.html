@@ -30,16 +30,22 @@
                     </div>
     
                     <div class="col-lg-6 col-md-6 ordering">
-                        <div class="select-box">
-                            <label>Sort By:</label>
-                            <select>
-                                <option>Default</option>
-                                <option>Popularity</option>
-                                <option>Latest</option>
-                                <option>Price: low to high</option>
-                                <option>Price: high to low</option>
-                            </select>
-                        </div>
+                        
+                        <form action="{% url 'shop' %}" method="get" id="sortProduct" class="orderby">
+
+                            <div class="box sort pull-right">
+                              <span>Sort By:</span>
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Default
+                              </button>
+                             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuButton">
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="Default"></li>
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="Popularity"></li>
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="Price: low to high"></li>
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="Price: high to low"></li>
+                             </ul>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 
@@ -85,22 +91,22 @@
 
                     <div class="col-lg-12 col-md-12">
                         <div class="pagination-area">
-                            {% if products.has_previous %}
-                            <a href="?page={{ products.previous_page_number }}" class="prev page-numbers">
+                            {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}" class="prev page-numbers">
                                 <i class="flaticon-left-arrow"></i>
                             </a>
                             {% endif %}
-                            {% for i in products.paginator.page_range %}
-                                {% if i > products.number|add:-3 and i < products.number|add:3 %}
-                                    {% if products.number == i %}
-                                        <span class="page-numbers current" aria-current="page">{{ products.number }}</span>
+                            {% for i in page_obj.paginator.page_range %}
+                                {% if i > page_obj.number|add:-3 and i < page_obj.number|add:3 %}
+                                    {% if page_obj.number == i %}
+                                        <span class="page-numbers current" aria-current="page">{{ page_obj.number }}</span>
                                     {% else %}
                                         <a href="?page={{ i }}" class="page-numbers">{{ i }}</a>
                                     {% endif %}
                                 {% endif %}
                             {% endfor %}
-                            {% if products.has_next %}
-                            <a href="?page={{ products.next_page_number }}" class="next page-numbers">
+                            {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}" class="next page-numbers">
                                 <i class="flaticon-right-arrow"></i>
                             </a>
                             {% endif %}
