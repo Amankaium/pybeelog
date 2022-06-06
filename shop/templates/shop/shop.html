@@ -105,7 +105,7 @@
                                     {% endif %}
                                 {% endif %}
                             {% endfor %}
-                            {% if products.has_next %}
+                            {% if page_obj.has_next %}
                             <a href="?page={{ page_obj.next_page_number }}" class="next page-numbers">
                                 <i class="flaticon-right-arrow"></i>
                             </a>
