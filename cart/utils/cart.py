@@ -1,5 +1,7 @@
 from shop.models import Product
-from pybeelog.settings import CART_SESSION_ID
+
+CART_SESSION_ID = 'cart'
+
 
 class Cart:
     def __init__(self, request):

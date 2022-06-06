@@ -197,7 +197,7 @@
             
                                             <ul class="products-action">
                                                 <li>
-                                                    <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                                    <a href="{% url 'cart:detail' %}" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                                 </li>
                                                 
                                                 <li>
@@ -289,7 +289,7 @@
 
                                 <ul class="products-action">
                                     <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                        <a href="{% url 'cart:cart_add' feature_product.id %}" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                     </li>
                                     
                                     <li>
