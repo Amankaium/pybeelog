@@ -5,21 +5,9 @@ from django.core.exceptions import FieldError
 
 from .models import *
 
-# def shop(request):
+
     
-#     products = Product.objects.all().order_by('-id')
-#     paginator = Paginator(products, 8)
-#     page = request.GET.get('page')
-#     try:
-#         products = paginator.page(page)
-#     except PageNotAnInteger:
-#         products = paginator.page(1)
-#     except EmptyPage:
-#         products = paginator.page(paginator.num_pages)
-#     return render(request, 'shop/shop.html', {'products': products})
-    
-class ShopView(ListView):
-    # Вывод всех товаров на главной странице
+class ShopView(ListView): 
     model = Product
     paginate_by = 8
     queryset = Product.objects.all()
