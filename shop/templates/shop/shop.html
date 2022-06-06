@@ -55,10 +55,12 @@
                         <div class="top-products-item">
                             <div class="products-image">
                                 <a href="{{ product.get_absolute_url }}"><img src="{{ product.img.url }}" alt="image" height="650" width="650"></a>
-
+                                <form action="{% url 'cart:cart_add' product.id %}" method="post" id="cartform">
+                                    {% csrf_token %}
+                                </form>
                                 <ul class="products-action">
                                     <li>
-                                        <a href="{% url 'cart:cart_add' product.id %}" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                        <a href="#"  onclick="document.getElementById('cartform').submit(); return false;" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                     </li>
 
                                     <li>

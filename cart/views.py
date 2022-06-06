@@ -16,11 +16,8 @@ def detail(request):
 def cart_add(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
-    form = Add2CartForm(request.POST)
 
-    if form.is_valid():
-        data = form.cleaned_data
-        cart.add(product=product, quantity=data['quantity'])
+    cart.add(product=product)
     return redirect('cart:detail')
 
 
