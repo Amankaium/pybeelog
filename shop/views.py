@@ -1,20 +1,30 @@
-from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic import ListView
+from django.shortcuts import render
+
 
 from .models import *
 
 
-def shop(request):
-    products = Product.objects.all().order_by('id')
-    paginator = Paginator(products, 8)
-    page = request.GET.get('page')
-    try:
-        products = paginator.page(page)
-    except PageNotAnInteger:
-        products = paginator.page(1)
-    except EmptyPage:
-        products = paginator.page(paginator.num_pages)
-    return render(request, 'shop/shop.html', {'products': products})
+
+    
+class ShopView(ListView): 
+    model = Product
+    paginate_by = 8
+    queryset = Product.objects.all()
+    template_name = 'shop/shop.html'
+    context_object_name = 'products'
+
+    def get_ordering(self):
+        ordering = self.request.GET.get('orderby')
+        if ordering == 'Default':
+            ordering = '-id'
+        elif ordering == 'Popularity':
+            ordering = 'view_count'
+        elif ordering == 'Price: low to high':
+            ordering = 'new_price'
+        else:
+            ordering = '-new_price'
+        return ordering
 
 
 def product(request, id):
