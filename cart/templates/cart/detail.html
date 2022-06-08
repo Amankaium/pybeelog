@@ -31,24 +31,59 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">Product</th>
+                                    <th scope="col">Name</th>
                                     <th scope="col">Unit Price</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Total</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+
                                 {% for item in cart %}
                                     <tr>
-                                        <th scope="row">{{ forloop.counter }}</th>
-                                        <td>{{ item.product }}</td>
-                                        <td>{{ item.price }}</td>
-                                        <td>{{ item.quantity }}</td>
-                                        <td>{{ item.total_price }}</td>
-                                        <td>
-                                            <a href="{% url 'cart:cart_remove' item.product.id %}"
-                                               class="btn btn-warning">remove</a>
+
+                                        <td class="product-name">
+                                            <a href="{{ item.get_absolute_url }}">
+                                                <img src="
+                                                {% if item.product.img %}
+                                                    {{ item.product.img.url }}
+                                                {% else %}
+                                                    {% static "img/no_image.png" %}
+                                                {% endif %}">
+                                            </a>
+                                        </td>
+                                        <td class="product-price">
+                                            {{ item.product }}
+                                        </td>
+                                        <td class="product-price">
+                                            {{ item.price }}
+                                        </td>
+                                        <td class="product-quantity">
+
+
+                                            <div class="input-counter">
+
+                                                    <span class="minus-btn">
+                                                        <i class='bx bx-minus'> </i>
+                                                    </span>
+
+                                                <input type="text" value="{{ item.quantity }}">
+                                                <span class="plus-btn">
+                                                        <i class='bx bx-plus'></i>
+                                                    </span>
+                                            </div>
+
+
+                                        </td>
+
+                                        <td class="product-subtotal">
+                                            {{ item.total_price }}
+                                            <a href="{% url 'cart:cart_remove' item.product.id %}" class="remove">
+                                                <i class='bx bx-trash'></i>
+                                            </a>
                                         </td>
                                     </tr>
+                                    <tr>
 
                                 {% endfor %}
                                 <tr>
@@ -67,10 +102,11 @@
                                     </a>
                                 </div>
                                 <div class="col-lg-5 col-sm-5 col-md-5 text-right">
-                                    <a href="" class="default-btn">
-                                        Update Cart
-                                    </a>
+                                        <a href="" class="default-btn">
+                                            Update Cart
+                                        </a>
                                 </div>
+
                             </div>
                         </div>
 
