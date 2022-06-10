@@ -20,28 +20,25 @@ class Cart:
             item['total_price'] = int(item['price']) * int(item['quantity'])
             yield item
 
-    def add(self, product, quantity=1, update_quantity=False):
+    def add(self, product):
         product_id = str(product.id)
 
         if product_id not in self.cart:
             self.cart[product_id] = {'quantity': 0, 'price': str(product.new_price)}
-
-        if update_quantity:
-            self.cart.get(product_id)['quantity'] = quantity
-        else:
-            self.cart.get(product_id)['quantity'] += quantity
+        self.cart.get(product_id)['quantity'] += 1
         self.save()
 
-    def update(self, product, quantity):
+    def update(self, product, count):
         product_id = str(product.id)
-
-        if product_id not in self.cart:
-            self.cart[product_id] = {'quantity': 0, 'price': str(product.new_price)}
-
-        self.cart.get(product_id)['quantity'] = quantity
+        if self.cart.get(product_id)['quantity'] > 1:
+            if count == 0:
+                self.cart.get(product_id)['quantity'] -= 1
+            else:
+                self.cart.get(product_id)['quantity'] += 1
         self.save()
 
     def remove(self, product):
+
         product_id = str(product.id)
         if product_id in self.cart:
             del self.cart[product_id]

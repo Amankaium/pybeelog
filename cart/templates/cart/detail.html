@@ -58,23 +58,25 @@
                                         <td class="product-price">
                                             {{ item.price }}
                                         </td>
+
+
                                         <td class="product-quantity">
-
-
                                             <div class="input-counter">
-
+                                                <a href="{% url 'cart:cart_update' item.product.id '0' %}">
                                                     <span class="minus-btn">
-                                                        <i class='bx bx-minus'> </i>
+                                                        <i class='bx bx-minus'></i>
                                                     </span>
+                                                </a>
+                                                <input type="text" min="1" value="{{ item.quantity }}">
 
-                                                <input type="text" value="{{ item.quantity }}">
-                                                <span class="plus-btn">
+                                                <a href="{% url 'cart:cart_update' item.product.id '1' %}">
+                                                    <span class="plus-btn">
                                                         <i class='bx bx-plus'></i>
                                                     </span>
+                                                </a>
                                             </div>
-
-
                                         </td>
+
 
                                         <td class="product-subtotal">
                                             {{ item.total_price }}
@@ -82,6 +84,7 @@
                                                 <i class='bx bx-trash'></i>
                                             </a>
                                         </td>
+
                                     </tr>
                                     <tr>
 
@@ -101,11 +104,7 @@
                                         Back to Shop
                                     </a>
                                 </div>
-                                <div class="col-lg-5 col-sm-5 col-md-5 text-right">
-                                        <a href="" class="default-btn">
-                                            Update Cart
-                                        </a>
-                                </div>
+
 
                             </div>
                         </div>

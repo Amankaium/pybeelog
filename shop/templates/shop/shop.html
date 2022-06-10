@@ -61,10 +61,9 @@
                                                                               height="650" width="650"></a>
 
 
-
-
                                 <ul class="products-action">
-                                    <form action="{% url 'cart:cart_add' product.id %}" method="post">
+
+                                    <form action="{% url 'cart:cart_add' product.id %}" method="post" >
                                         {% csrf_token %}
                                         {{ form }}
                                         <input type="submit" class="btn btn-primary" value="Add to cart">
@@ -75,6 +74,12 @@
                                            data-toggle="modal" data-target="#productsQuickView">
                                             <i class="flaticon-search"></i>
                                         </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                           onclick="document.getElementById('cartform').submit(); return false;"
+                                           data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i
+                                                class="flaticon-shopping-cart"></i></a>
                                     </li>
                                 </ul>
 
