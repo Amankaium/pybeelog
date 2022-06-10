@@ -5,16 +5,16 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def Blog(request):
-    information = blog.objects.all().order_by('id')
-    paginator = Paginator(information)
+    information = Post.objects.all().order_by('id')
+    paginator = Paginator(information, per_page=10)
     page = request.GET.get('page')
     try:
-        blog = paginator.page(page)
+        posts = paginator.page(page)
     except PageNotAnInteger:
-        blog = paginator.page(1)
+        posts = paginator.page(1)
 #    except EmptyPage: 
 #        blog = paginator.page(paginator.num_pages)
-    return render(request, 'blog/blog-1.html', {'information': 'information'})
+    return render(request, 'blog/blog-1.html', {'posts': 'posts'})
 
 
 

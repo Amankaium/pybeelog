@@ -29,3 +29,7 @@ class BlogTestCase(TestCase):
     def test_open_blog_edit(self):
         driver = webdriver.Chrome()
         driver.get("http://localhost:8000/")
+
+
+
+ 
