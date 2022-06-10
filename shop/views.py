@@ -1,26 +1,30 @@
-from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.views.generic import ListView
+from django.shortcuts import render
 
 from .models import *
 
-def shop(request):
-    products = Product.objects.all().order_by('id')
-    paginator = Paginator(products, 8)
-    page = request.GET.get('page')
-    try:
-        products = paginator.page(page)
-    except PageNotAnInteger:
-        products = paginator.page(1)
-    except EmptyPage: 
-        products = paginator.page(paginator.num_pages)
-    return render(request, 'shop/shop.html', {'products': products})
 
+class ShopView(ListView):
+    model = Product
+    paginate_by = 8
+    queryset = Product.objects.all()
+    template_name = 'shop/shop.html'
+    context_object_name = 'products'
 
+    def get_ordering(self):
+        ordering = self.request.GET.get('orderby')
+        if ordering == 'Default':
+            ordering = '-id'
+        elif ordering == 'Popularity':
+            ordering = 'view_count'
+        elif ordering == 'Price: low to high':
+            ordering = 'new_price'
+        else:
+            ordering = '-new_price'
+        return ordering
 
 
 def product(request, id):
-    
     product = Product.objects.get(id=id)
     product.view_count = product.view_count + 1
     product.save()
@@ -28,7 +32,7 @@ def product(request, id):
     feature_products = Product.objects.all().order_by('view_count')[:8]
     related_products = Product.objects.all().order_by('view_count')[:4]
     popular_products = Product.objects.all().order_by('view_count')[:3]
-    
+
     if request.method == "POST":
         comment = Review()
         comment.post_id = id
@@ -37,6 +41,6 @@ def product(request, id):
         comment.title = request.POST.get('review-title')
         comment.comment = request.POST.get('review-body')
         comment.save()
-    return render(request, 'shop/shop-details.html', {'product':product, 'comments': com, 'related_products': related_products, 'feature_products':feature_products, 'popular_products':popular_products})
-
-
+    return render(request, 'shop/shop-details.html',
+                  {'product': product, 'comments': com, 'related_products': related_products,
+                   'feature_products': feature_products, 'popular_products': popular_products})
