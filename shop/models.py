@@ -21,7 +21,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукция'
         verbose_name_plural = 'Продукция'
-        ordering = ['time_create']
+        ordering = ['-id']
 
 class Review(models.Model):
         post = models.ForeignKey(
