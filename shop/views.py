@@ -1,13 +1,10 @@
 from django.views.generic import ListView
 from django.shortcuts import render
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.core.exceptions import FieldError
 
 from .models import *
 
 
-    
-class ShopView(ListView): 
+class ShopView(ListView):
     model = Product
     paginate_by = 8
     queryset = Product.objects.all()
@@ -28,7 +25,6 @@ class ShopView(ListView):
 
 
 def product(request, id):
-    
     product = Product.objects.get(id=id)
     product.view_count = product.view_count + 1
     product.save()
@@ -36,7 +32,7 @@ def product(request, id):
     feature_products = Product.objects.all().order_by('view_count')[:8]
     related_products = Product.objects.all().order_by('view_count')[:4]
     popular_products = Product.objects.all().order_by('view_count')[:3]
-    
+
     if request.method == "POST":
         comment = Review()
         comment.post_id = id
@@ -45,6 +41,6 @@ def product(request, id):
         comment.title = request.POST.get('review-title')
         comment.comment = request.POST.get('review-body')
         comment.save()
-    return render(request, 'shop/shop-details.html', {'product':product, 'comments': com, 'related_products': related_products, 'feature_products':feature_products, 'popular_products':popular_products})
-
-
+    return render(request, 'shop/shop-details.html',
+                  {'product': product, 'comments': com, 'related_products': related_products,
+                   'feature_products': feature_products, 'popular_products': popular_products})
