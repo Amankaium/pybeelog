@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+
+{% block page %}
+        <!-- Start Top Products Area -->
+        <section class="top-products-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Trending Products</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                </div>
+
+                <div class="row">
+                    {% for t_p in trending_products %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="top-products-item">
+                            <div class="products-image">
+                                <a href="{{ t_p.get_absolute_url }}"><img src="{{ t_p.img.url }}" alt="image" height="650" width="650"></a>
+
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class="flaticon-search"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="sale">
+                                    <span>Sale</span>
+                                </div>
+                            </div>
+
+                            <div class="products-content">
+                                <h3>
+                                    <a href="{{ t_p.get_absolute_url }}">{{ t_p.title }}</a>
+                                </h3>
+                                <div class="price">
+                                    <span class="new-price">${{ t_p.new_price }}</span>
+                                    <span class="old-price">${{ t_p.old_price }}</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- End Top Products Area -->
+
+        
+
+        <!-- Start Featured Products Area -->
+        <section class="featured-products-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Featured  Products</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                </div>
+                
+                <div class="row">
+                    {% for f_p in featured_products %}
+                    <div class="col-lg-3 col-md-6">
+                        <div class="featured-products-item">
+                            <div class="products-image">
+                                <a href="{{ f_p.get_absolute_url }}"><img src="{{ f_p.img.url }}" alt="image" height="550" width="550"></a>
+
+                                <ul class="products-action">
+                                    <li>
+                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                    </li>
+                                    
+                                    <li>
+                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
+                                            <i class="flaticon-search"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                                <div class="new">
+                                    <span>New</span>
+                                </div>
+                            </div>
+
+                            <div class="products-content">
+                                <h3>
+                                    <a href="{ f_p.get_absolute_url }}">{{ f_p.title }}</a>
+                                </h3>
+                                <div class="price">
+                                    <span class="new-price">${{ f_p.new_price }}</span>
+                                    <span class="old-price">${{ f_p.old_price }}</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- End Featured Products Area -->
+
+        <!-- Start Testimonial Area -->
+        
+
+        <!-- Start Best Sellers Products Area -->
+        <section class="top-products-area pt-100 pb-100">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Best Sellers Products</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                </div>
+
+                <div class="top-products-slider owl-carousel owl-theme">
+                    {% for b_s_p in best_seller_products %}
+                    <div class="top-products-item">
+                        <div class="products-image">
+                            <a href="{{ b_s_p.get_absolute_url }}"><img src="{{ b_s_p.img.url }}" alt="image" height="650" width="650"></a>
+
+                            <ul class="products-action">
+                                <li>
+                                    <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
+                                        <i class="flaticon-search"></i>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="sale">
+                                <span>Sale</span>
+                            </div>
+                        </div>
+
+                        <div class="products-content">
+                            <h3>
+                                <a href="{{ b_s_p.get_absolute_url }}">{{ b_s_p.title }}</a>
+                            </h3>
+                            <div class="price">
+                                <span class="new-price">${{ b_s_p.new_price }}</span>
+                                <span class="old-price">${{ b_s_p.old_price }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!-- End Best Sellers Products Area -->
+
+    
+
+        <!-- Start Blog Area -->
+        <section class="blog-area pt-100 pb-70">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Latest Blog</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-blog-item">
+                            <div class="image">
+                                <a href="blog-details.html"><img src="assets/img/blog/blog-1.jpg" alt="image"></a>
+                                
+                                <div class="date">
+                                    <span>20 December 2020</span>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <h3>
+                                    <a href="blog-details.html">What You Should Know About Detox Water</a>
+                                </h3>
+                                <a href="blog-details.html" class="blog-btn">Read More +</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-blog-item">
+                            <div class="image">
+                                <a href="blog-details.html"><img src="assets/img/blog/blog-2.jpg" alt="image"></a>
+                                
+                                <div class="date">
+                                    <span>24 December 2020</span>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <h3>
+                                    <a href="blog-details.html">Better Hot Drink Elegant You Can Order By Online</a>
+                                </h3>
+                                <a href="blog-details.html" class="blog-btn">Read More +</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                        <div class="single-blog-item">
+                            <div class="image">
+                                <a href="blog-details.html"><img src="assets/img/blog/blog-3.jpg" alt="image"></a>
+                                
+                                <div class="date">
+                                    <span>29 December 2020</span>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <h3>
+                                    <a href="blog-details.html">Role of Genetics in Treating Low-grade Glioma</a>
+                                </h3>
+                                <a href="blog-details.html" class="blog-btn">Read More +</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Blog Area -->
+
+{% endblock %}

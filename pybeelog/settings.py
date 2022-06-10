@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart',
 
+    'core.apps.CoreConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -95,6 +97,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+
     }
 }
 
