@@ -4,7 +4,7 @@ from django.urls import reverse
 class Product(models.Model):
     title = models.CharField(max_length=255, verbose_name="Наименование товара")
     content = models.TextField(blank=True, verbose_name="Информация о товаре")
-    img = models.ImageField(upload_to='photos/products/%Y/%m/%d', verbose_name='Фото')
+    img = models.ImageField(upload_to='photos/products/%Y/%m/%d', verbose_name='Фото', blank=True)
     new_price = models.IntegerField(verbose_name="Новая цена")
     old_price = models.IntegerField(verbose_name="Старая цена")
     view_count = models.IntegerField(default=0, verbose_name="Число просмотров")
