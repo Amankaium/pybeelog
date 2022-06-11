@@ -4,6 +4,7 @@ class Post(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField()
     date_of_post = models.DateField(auto_now_add=True)
+    author = models.CharField(max_length=30)
     date_of_change = models.DateField(auto_now=True)
     image = models.ImageField(upload_to=f'posts/%Y/%m/%d')
     visits = models.IntegerField(default=0)
