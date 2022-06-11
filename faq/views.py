@@ -3,6 +3,8 @@ from django.views.generic import FormView
 
 from .forms import FaqFeedbackForm
 from .models import *
+
+
 # Create your views here.
 
 
