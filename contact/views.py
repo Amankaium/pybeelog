@@ -1,12 +1,12 @@
-from django.views.generic import ListView, CreateView
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.views.generic import ListView
+from django.shortcuts import redirect
 
 from django.views.generic import FormView
-from django.urls import reverse_lazy
+
 
 from .models import Subscribe, Feedback
-from .forms import FeedbackForm, SubscribeForm
-from django.http import HttpResponseNotFound
+from .forms import FeedbackForm
+
 
 
 class FeedbackView(FormView, ListView):
