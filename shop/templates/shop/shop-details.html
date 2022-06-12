@@ -4,28 +4,24 @@
 
 {% block page %}}
 
-
-        <!-- Start Page Banner -->
         <div class="page-banner-area item-bg4">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-banner-content">
-                            <h2>Shop Details</h2>
+                            <h2>Product</h2>
                             <ul>
                                 <li>
-                                    <a href="index.html">Home</a>
+                                    <a href="{% url 'homepage' %}">Home</a>
                                 </li>
-                                <li>Shop Details</li>
+                                <li>Product</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End Page Banner -->
 
-        <!-- Start Product Details Area -->
         <section class="product-details-area pt-100 pb-70">
             <div class="container">
                 <div class="row">
@@ -202,15 +198,13 @@
                                             <a href="{{ related_product.get_absolute_url }}"><img src="{{ related_product.img.url }}" alt="image" height="650" width="650"></a>
 
                                             <ul class="products-action">
+                                                <form action="{% url 'cart_add' related_product.id %}" method="post" id="related-{{ related_product.id }}">
+                                                    {% csrf_token %}
+                                                </form>
                                                 <li>
-                                                    <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                                    <a href="#" onclick="document.getElementById('related-{{ related_product.id }}').submit(); return false;" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                                 </li>
 
-                                                <li>
-                                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                                        <i class="flaticon-search"></i>
-                                                    </a>
-                                                </li>
                                             </ul>
 
                                             <div class="sale">
@@ -275,9 +269,7 @@
                 </div>
             </div>
         </section>
-        <!-- End Product Details Area -->
 
-        <!-- Start Featured Products Area -->
         <section class="featured-products-area pb-70">
             <div class="container">
                 <div class="section-title">
@@ -294,15 +286,13 @@
                                 <a href="{{ feature_product.get_absolute_url }}"><img src="{{ feature_product.img.url }}" alt="image" height="550" width="550"></a>
 
                                 <ul class="products-action">
+                                    <form action="{% url 'cart_add' feature_product.id %}" method="post" id="feature-{{ feature_product.id }}">
+                                        {% csrf_token %}
+                                    </form>
                                     <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                        <a href="#" onclick="document.getElementById('feature-{{ feature_product.id }}').submit(); return false;" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                     </li>
 
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
                                 </ul>
 
                                 <div class="new">
@@ -328,7 +318,6 @@
             </div>
         </section>
 
-        <!-- End Featured Products Area -->
 {% endblock %}
 
 
