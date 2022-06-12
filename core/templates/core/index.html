@@ -1,7 +1,25 @@
 {% extends 'base.html' %}
 
 {% block page %}
-        <!-- Start Top Products Area -->
+<div class="main-banner">
+    <div class="main-banner-item">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <div class="main-banner-content">
+                        <span>Take Natural Taste From Our Shop</span>
+                        <h1>Organic Food Is Good For Health</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
+                        <div class="banner-btn">
+                            <a href="{% url 'shop' %}" class="default-btn">Our Shop</a>
+                            <a href="{% url 'cart-detail' %}" class="optional-btn">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
         <section class="top-products-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
@@ -17,15 +35,13 @@
                                 <a href="{{ t_p.get_absolute_url }}"><img src="{{ t_p.img.url }}" alt="image" height="650" width="650"></a>
 
                                 <ul class="products-action">
+                                    <form action="{% url 'cart_add' t_p.id %}" method="post" id="trend-{{ t_p.id }}">
+                                        {% csrf_token %}
+                                    </form>
                                     <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                        <a href="#" onclick="document.getElementById('trend-{{ t_p.id }}').submit(); return false;" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                     </li>
                                     
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
                                 </ul>
 
                                 <div class="sale">
@@ -49,11 +65,7 @@
                 </div>
             </div>
         </section>
-        <!-- End Top Products Area -->
-
         
-
-        <!-- Start Featured Products Area -->
         <section class="featured-products-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
@@ -69,15 +81,13 @@
                                 <a href="{{ f_p.get_absolute_url }}"><img src="{{ f_p.img.url }}" alt="image" height="550" width="550"></a>
 
                                 <ul class="products-action">
+                                    <form action="{% url 'cart_add' f_p.id %}" method="post" id="feature-{{ f_p.id }}">
+                                        {% csrf_token %}
+                                    </form>
                                     <li>
-                                        <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                        <a href="#" onclick="document.getElementById('feature-{{ f_p.id }}').submit(); return false;" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                     </li>
                                     
-                                    <li>
-                                        <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                            <i class="flaticon-search"></i>
-                                        </a>
-                                    </li>
                                 </ul>
 
                                 <div class="new">
@@ -102,12 +112,7 @@
                 </div>
             </div>
         </section>
-        <!-- End Featured Products Area -->
-
-        <!-- Start Testimonial Area -->
         
-
-        <!-- Start Best Sellers Products Area -->
         <section class="top-products-area pt-100 pb-100">
             <div class="container">
                 <div class="section-title">
@@ -122,15 +127,13 @@
                             <a href="{{ b_s_p.get_absolute_url }}"><img src="{{ b_s_p.img.url }}" alt="image" height="650" width="650"></a>
 
                             <ul class="products-action">
+                                <form action="{% url 'cart_add' b_s_p.id %}" method="post" id="best-{{ b_s_p.id }}">
+                                    {% csrf_token %}
+                                </form>
                                 <li>
-                                    <a href="cart.html" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
+                                    <a href="#" onclick="document.getElementById('best-{{ b_s_p.id }}').submit(); return false;" data-tooltip="tooltip" data-placement="top" title="Add to Cart"><i class="flaticon-shopping-cart"></i></a>
                                 </li>
                                 
-                                <li>
-                                    <a href="#" data-tooltip="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#productsQuickView">
-                                        <i class="flaticon-search"></i>
-                                    </a>
-                                </li>
                             </ul>
 
                             <div class="sale">
@@ -152,78 +155,39 @@
                 </div>
             </div>
         </section>
-        <!-- End Best Sellers Products Area -->
-
-    
-
-        <!-- Start Blog Area -->
+        
         <section class="blog-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
                     <h2>Latest Blog</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                 </div>
 
                 <div class="row">
+                    {% for l_blog in latest_blog %}
                     <div class="col-lg-4 col-md-6">
                         <div class="single-blog-item">
                             <div class="image">
-                                <a href="blog-details.html"><img src="assets/img/blog/blog-1.jpg" alt="image"></a>
+                                <a href="blog-details.html"><img src="{{ l_blog.img.url }}" alt="image"></a>
                                 
                                 <div class="date">
-                                    <span>20 December 2020</span>
+                                    <span>{{ l_blog.posted }}</span>
                                 </div>
                             </div>
                             <div class="content">
                                 <h3>
-                                    <a href="blog-details.html">What You Should Know About Detox Water</a>
+                                    <a href="{% url 'post' l_blog.id %}">{{ l_blog.title }}</a>
                                 </h3>
-                                <a href="blog-details.html" class="blog-btn">Read More +</a>
+                                <a href="{% url 'post' l_blog.id %}" class="blog-btn">Read More +</a>
                             </div>
                         </div>
-                    </div>
+                    </div> 
+                    {% endfor %}
 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-blog-item">
-                            <div class="image">
-                                <a href="blog-details.html"><img src="assets/img/blog/blog-2.jpg" alt="image"></a>
-                                
-                                <div class="date">
-                                    <span>24 December 2020</span>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <h3>
-                                    <a href="blog-details.html">Better Hot Drink Elegant You Can Order By Online</a>
-                                </h3>
-                                <a href="blog-details.html" class="blog-btn">Read More +</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
-                        <div class="single-blog-item">
-                            <div class="image">
-                                <a href="blog-details.html"><img src="assets/img/blog/blog-3.jpg" alt="image"></a>
-                                
-                                <div class="date">
-                                    <span>29 December 2020</span>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <h3>
-                                    <a href="blog-details.html">Role of Genetics in Treating Low-grade Glioma</a>
-                                </h3>
-                                <a href="blog-details.html" class="blog-btn">Read More +</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+
             </div>
         </section>
-        <!-- End Blog Area -->
-
-        <!-- Start Newsletter Area -->
+        
         <div class="newsletter-area ptb-100">
             <div class="container">
                 <div class="row align-items-center">
@@ -235,9 +199,9 @@
                     </div>
 
                     <div class="col-lg-6">
-                        <form class="newsletter-form">
-                            <input type="email" class="input-newsletter" placeholder="Enter Email Address" name="EMAIL" required autocomplete="off">
-
+                        <form method="post" action="{% url 'subscribe' %}">
+                            {% csrf_token %}
+                            <input type="email" placeholder="Enter Email Address" name="email" required autocomplete="off">
                             <button type="submit">Subscribe Now</button>
                             
                             <div id="validator-newsletter" class="form-result"></div>
@@ -246,5 +210,4 @@
                 </div>
             </div>
         </div>
-        <!-- End Newsletter Area -->
 {% endblock %}
