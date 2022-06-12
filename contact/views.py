@@ -1,17 +1,14 @@
-<<<<<<< HEAD
-=======
-from django.views.generic import ListView
->>>>>>> e1558a1a3752e87c3fac38391fdbbcd8fe60f8d4
+
+
 from django.shortcuts import redirect
 
 from django.views.generic import FormView
 
 from .models import Subscribe, Feedback
 from .forms import FeedbackForm
-<<<<<<< HEAD
+
 from django.views.decorators.http import require_POST
-=======
->>>>>>> e1558a1a3752e87c3fac38391fdbbcd8fe60f8d4
+
 
 class FeedbackView(FormView):
     template_name = 'contact/contact.html'

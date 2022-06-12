@@ -1,10 +1,8 @@
 from django.shortcuts import render
-<<<<<<< HEAD
+
 from shop.models import Product
 from blog.models import Post
-=======
-from shop.models import *
->>>>>>> e1558a1a3752e87c3fac38391fdbbcd8fe60f8d4
+
 
 
 # from blog.models import *
