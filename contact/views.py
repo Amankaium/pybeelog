@@ -1,15 +1,12 @@
-from django.views.generic import ListView, CreateView
-from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.shortcuts import redirect
 
 from django.views.generic import FormView
-from django.urls import reverse_lazy
 
 from .models import Subscribe, Feedback
-from .forms import FeedbackForm, SubscribeForm
-from django.http import HttpResponseNotFound
+from .forms import FeedbackForm
+from django.views.decorators.http import require_POST
 
-
-class FeedbackView(FormView, ListView):
+class FeedbackView(FormView):
     template_name = 'contact/contact.html'
     form_class = FeedbackForm
     success_url = '/contact/'
@@ -21,13 +18,13 @@ class FeedbackView(FormView, ListView):
         return super().form_valid(form)
 
 
-
+@require_POST
 def subscribe(request):
-    if request.method == 'POST':
-        sub = Subscribe()
-        sub.email = request.POST.get('email')
-        sub.save()
-    return redirect('contact/contact.html')
+    sub = Subscribe()
+    sub.email = request.POST.get('email')
+    sub.save()
+    return redirect('homepage')
+
 
 
 

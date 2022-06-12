@@ -1,6 +1,5 @@
-import email
 from django.db import models
-from distutils.command.upload import upload
+
 
 
 class Feedback(models.Model):

@@ -1,6 +1,3 @@
-from cProfile import label
-from dataclasses import field
-from tkinter import Widget
 from django import forms
 
 from .models import Feedback, Subscribe
@@ -21,19 +18,3 @@ class FeedbackForm(forms.ModelForm):
             'message': forms.Textarea(attrs={"class": "form-control"}),
         }
 
-
-class SubscribeForm(forms.ModelForm):
-    '''Форма подписки по email'''
-    class Meta:
-        model = Subscribe
-        fields = ("email", )
-        widgets = {
-            "email": forms.TextInput(
-                attrs={
-                    "class": "input-newsletter",
-                    "placeholder": "Enter Email Address"
-                })
-        }
-        labels = {
-            "email": ''
-        }
