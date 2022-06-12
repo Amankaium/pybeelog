@@ -1,12 +1,14 @@
 from django.test import TestCase
-from django.urls import reverse
+
 from shop.models import *
+
 
 class ShopTestCase(TestCase):
     def test_open_shop_success(self):
         url = reverse('shop')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
+
 
 class ShopDetailsTestCase(TestCase):
     def setUp(self):

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Post, Comment
 
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def blog(request):
@@ -11,6 +12,7 @@ def blog(request):
         posts = paginator.page(page)
     except PageNotAnInteger:
         posts = paginator.page(1)
+
     except EmptyPage: 
         posts = paginator.page(paginator.num_pages)
     return render(request, 'blog/blog.html',{'posts': posts})
@@ -24,6 +26,8 @@ def post(request,id):
     
     com = post.comments.filter(post_id=id)
     
+
+
     if request.method == "POST":
         comment = Comment()
         comment.post_id = id
@@ -31,5 +35,5 @@ def post(request,id):
         comment.email = request.POST.get('email')
         comment.comment = request.POST.get('comment')
         comment.save()
-        
+   
     return render(request, 'blog/blog-details.html', {'post': post, 'comments': com})
