@@ -16,7 +16,7 @@ def cart_add(request, product_id):
     product = get_object_or_404(Product, id=product_id)
 
     cart.add(product=product)
-    return redirect('cart:detail')
+    return redirect('cart-detail')
 
 
 def cart_update(request, product_id, count):
@@ -24,11 +24,11 @@ def cart_update(request, product_id, count):
     product = get_object_or_404(Product, id=product_id)
 
     cart.update(product=product, count=count)
-    return redirect('cart:detail')
+    return redirect('cart-detail')
 
 
 def cart_remove(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     cart.remove(product)
-    return redirect('cart:detail')
+    return redirect('cart-detail')
