@@ -24,10 +24,9 @@ def post(request,id):
     post.visit_count = post.visit_count + 1
     post.save()
     
+    pop_posts = Post.objects.all().order_by('visit_count')[:6]
     com = post.comments.filter(post_id=id)
     
-
-
     if request.method == "POST":
         comment = Comment()
         comment.post_id = id
@@ -36,4 +35,4 @@ def post(request,id):
         comment.comment = request.POST.get('comment')
         comment.save()
    
-    return render(request, 'blog/blog-details.html', {'post': post, 'comments': com})
+    return render(request, 'blog/blog-details.html', {'post': post, 'comments': com, 'pop_posts': pop_posts})

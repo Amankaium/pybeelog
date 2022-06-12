@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'cart',
 
     'core.apps.CoreConfig',
-    'search'
+    'search',
+    'checkout',
 ]
 
 MIDDLEWARE = [

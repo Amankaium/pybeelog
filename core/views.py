@@ -5,9 +5,6 @@ from blog.models import Post
 
 
 
-# from blog.models import *
-
-
 def homepage(request):
     product = Product.objects.all().order_by('id')
     trending_products = Product.objects.all().order_by('view_count')[:8]

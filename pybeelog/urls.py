@@ -33,7 +33,7 @@ urlpatterns = [
     path('', include('core.urls')),
 
     path('search/', include('search.urls')),
-
+    path('checkout/', include('checkout.urls')),
 
 
 ]

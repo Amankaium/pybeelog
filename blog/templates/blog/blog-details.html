@@ -159,10 +159,11 @@
                             <section class="widget widget_search">
                                 <h3 class="widget-title">Search</h3>
 
-                                <form class="search-form">
+                                <form class="search-form" action="{% url 'search_blog' %}" method="post">
+                                    {% csrf_token %}
                                     <label>
                                         <span class="screen-reader-text">Search for:</span>
-                                        <input type="search" class="search-field" placeholder="Search...">
+                                        <input type="search" class="search-field" placeholder="Search..." name="search">
                                     </label>
                                     <button type="submit">
                                         <i class="flaticon-search"></i>
@@ -172,66 +173,17 @@
 
                             <section class="widget widget_orgo_posts_thumb">
                                 <h3 class="widget-title">Popular Posts</h3>
-
+                                {% for pop_post in pop_posts %}
                                 <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg1" role="img"></span>
+                                    <a href="{% url 'post' pop_post.id %}" class="thumb">
+                                        <span class="fullimage cover bg1" role="img"><img src="{{ pop_post.img.url }}" alt="image" height="110" width="110"></span>
                                     </a>
                                     <div class="info">
-                                        <span>June 10, 2020</span>
-                                        <h4 class="title usmall"><a href="#">What You Should Know About Detox Water</a></h4>
+                                        <span>{{ pop_post.posted }}</span>
+                                        <h4 class="title usmall"><a href="#">{{ pop_post.title }}</a></h4>
                                     </div>
                                 </article>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg2" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <span>June 21, 2020</span>
-                                        <h4 class="title usmall"><a href="#">Better Hot Drink Elegant You Can Order By Online</a></h4>
-                                    </div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg3" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <span>June 30, 2020</span>
-                                        <h4 class="title usmall"><a href="#">Role Of Genetics In Treating Low-Grade Glioma</a></h4>
-                                    </div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg4" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <span>May 10, 2020</span>
-                                        <h4 class="title usmall"><a href="#">Organic Food Is Good For Health</a></h4>
-                                    </div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg5" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <span>May 21, 2020</span>
-                                        <h4 class="title usmall"><a href="#">Three Reasons Visibility Matters In Supply Chain</a></h4>
-                                    </div>
-                                </article>
-
-                                <article class="item">
-                                    <a href="#" class="thumb">
-                                        <span class="fullimage cover bg6" role="img"></span>
-                                    </a>
-                                    <div class="info">
-                                        <span>May 30, 2020</span>
-                                        <h4 class="title usmall"><a href="#">Fusce Convallis Enim Non Magna Pharetra</a></h4>
-                                    </div>
-                                </article>
+                                {% endfor %}
                             </section>
 
                         </aside>

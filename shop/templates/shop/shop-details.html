@@ -235,10 +235,11 @@
                             <section class="widget widget_search">
                                 <h3 class="widget-title">Search</h3>
 
-                                <form class="search-form">
+                                <form class="search-form" method="post" action="{% url 'search_shop' %}">
+                                    {% csrf_token %}
                                     <label>
                                         <span class="screen-reader-text">Search for:</span>
-                                        <input type="search" class="search-field" placeholder="Search...">
+                                        <input type="search" class="search-field" placeholder="Search..." name="search">
                                     </label>
                                     <button type="submit">
                                         <i class="flaticon-search"></i>
@@ -253,7 +254,7 @@
                                 {% for popular_product in popular_products %}
                                 <article class="item">
                                     <a href="{{ popular_product.get_absolute_url }}" class="thumb">
-                                        <span class="fullimage cover bg1" role="img"><img src="{{ popular_product.img.url }}" alt="image" height="650" width="650"></span>
+                                        <span class="fullimage cover bg1" role="img"><img src="{{ popular_product.img.url }}" alt="image" height="110" width="110"></span>
                                     </a>
                                     <div class="info">
                                         <span>${{ popular_product.new_price }}</span>
