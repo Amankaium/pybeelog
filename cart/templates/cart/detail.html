@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %}
     Your Cart
 {% endblock %}
@@ -9,12 +10,12 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-banner-content">
-                    <h2>Cart</h2>
+                    <h2>{% trans 'Cart' %}</h2>
                     <ul>
                         <li>
-                            <a href="{% url 'homepage' %}">Home</a>
+                            <a href="{% url 'homepage' %}">{% trans 'Home' %}</a>
                         </li>
-                        <li>Cart</li>
+                        <li>{% trans 'Cart' %}</li>
                     </ul>
                 </div>
             </div>
@@ -31,11 +32,11 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Unit Price</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Total</th>
+                                    <th scope="col">{% trans 'Product' %}</th>
+                                    <th scope="col">{% trans 'Name' %}</th>
+                                    <th scope="col">{% trans 'Unit Price' %}</th>
+                                    <th scope="col">{% trans 'Quantity' %}</th>
+                                    <th scope="col">{% trans 'Total' %}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,21 +83,21 @@
                         <div class="row align-items-center">
                             <div class="col-lg-7 col-sm-7 col-md-7">
                                 <a href="{% url 'shop' %}" class="default-btn">
-                                    Back to Shop
+                                    {% trans 'Back to Shop' %}
                                 </a>
                             </div>
                         </div>
                     </div>
 
                     <div class="cart-totals">
-                        <h3>Cart Totals</h3>
+                        <h3>{% trans 'Cart Totals' %}</h3>
                         <ul>
-                            <li>Total 
+                            <li>{% trans 'Total' %}
                                 <span><b>${{ cart.get_total_price }}</b></span>
                             </li>
                         </ul>
                         <a href="{% url 'checkout' %}" class="default-btn">
-                            Proceed to Checkout
+                            {% trans 'Proceed to Checkout' %}
                         </a>
                     </div>
                 </form>

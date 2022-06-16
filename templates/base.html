@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!doctype html>
 <html lang="zxx">
     <head>
@@ -30,7 +31,7 @@
         <!-- Responsive CSS -->
 		<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 		
-		<title>Orgo - Organic Fruit & Food Shop HTML Template</title>
+		<title>{% trans 'Orgo - Organic Fruit & Food Shop HTML Template' %}</title>
 
         <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
     </head>
@@ -52,7 +53,7 @@
                         <ul class="top-header-information">
                             <li>
                                 <i class='bx bxs-map'></i>
-                                175 5th Ave Premium Area, New York
+                                {% trans '175 5th Ave Premium Area, New York' %}
                             </li>
                             <li>
                                 <i class='bx bx-envelope'></i>
@@ -113,40 +114,50 @@
                             <ul class="navbar-nav">
                                 <li class="nav-item">
                                     <a href="{% url 'homepage' %}" class="nav-link active">
-                                        Home
+                                        {% trans 'Home' %}
                                     </a>
                                 </li>
 
 
                                 <li class="nav-item">
                                     <a href="{% url 'shop' %}" class="nav-link">
-                                        Shop
+                                        {% trans 'Shop' %}
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{% url 'blog' %}" class="nav-link">
-                                        Blog
+                                        {% trans 'Blog' %}
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="{% url 'feedback_view' %}" class="nav-link">
-                                        Contact
+                                        {% trans 'Contact' %}
                                     </a>
                                 </li>
                             </ul>
 
-                            <div class="others-options d-flex align-items-center">
-                                <div class="option-item">
-                                    <div class="languages-list">
-                                        <select>
-                                            <option value="1">Eng</option>
-                                            <option value="2">Rus</option>
+                                <div class="others-options d-flex align-items-center">
+                                    <div class="option-item">
+                                        <div class="languages-list">
+                                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                                        <select name="language">
+                                            {% get_current_language as LANGUAGE_CODE %}
+                                            {% get_available_languages as LANGUAGES %}
+                                            {% get_language_info_list for LANGUAGES as languages %}
+                                            {% for language in languages %}
+                                                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                                        selected{% endif %}>
+                                                    {{ language.name_local }} ({{ language.code }})
+                                                </option>
+                                            {% endfor %}
                                         </select>
+                                        <input type="submit" value="{% trans 'Go' %}">
+                                    </form>
                                     </div>
                                 </div>
-
                                 <div class="option-item">
                                     <div class="cart-btn">
 
@@ -161,7 +172,7 @@
                                 <div class="option-item">
                                     <form class="search-box" method="post" {% if request.path == '/blog/' %} action="{% url 'search_blog' %}" {% else %} action="{% url 'search_shop' %}" {% endif %}>
                                         {% csrf_token %}
-                                        <input type="text" class="form-control" placeholder="Search" name="search">
+                                        <input type="text" class="form-control" placeholder="{% trans 'Search' %}" name="search">
                                         <button type="submit"><i class="flaticon-search"></i></button>
                                     </form>
                                 </div>
@@ -213,7 +224,7 @@
                                 <div class="option-item">
                                     <form class="search-box" method="post" {% if request.path == '/blog/' %} action="{% url 'search_blog' %}" {% else %} action="{% url 'search_shop' %}" {% endif %}>
                                         {% csrf_token %}
-                                        <input type="text" class="form-control" placeholder="Search" name="search">
+                                        <input type="text" class="form-control" placeholder="{% trans 'Search' %}" name="search">
                                         <button type="submit"><i class="flaticon-search"></i></button>
                                     </form>
                                 </div>
@@ -236,8 +247,8 @@
             <div class="sidebar-modal-inner">
                 <div class="sidebar-about-area">
                     <div class="title">
-                        <h2>About Us</h2>
-                        <p>We believe brand interaction is key in communication. Real innovations and a positive customer experience are the heart of successful communication. No fake products and services. The customer is king, their lives and needs are the inspiration.</p>
+                        <h2>{% trans 'About Us' %}</h2>
+                        <p>{% trans 'We believe brand interaction is key in communication. Real innovations and a positive customer experience are the heart of successful communication. No fake products and services. The customer is king, their lives and needs are the inspiration.' %}</p>
                     </div>
                 </div>
 
@@ -344,20 +355,20 @@
 
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-footer-widget pl-5">
-                            <h3>Quick Links</h3>
+                            <h3>{% trans 'Quick Links' %}</h3>
     
                             <ul class="quick-links">
                                 <li>
-                                    <a href="{% url 'shop' %}">Shop</a>
+                                    <a href="{% url 'shop' %}">{% trans 'Shop' %}</a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'blog' %}">Blog</a>
+                                    <a href="{% url 'blog' %}">{% trans 'Blog' %}</a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'faq' %}">Faq</a>
+                                    <a href="{% url 'faq' %}">{% trans 'Faq' %}</a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'feedback_view' %}">Contact</a>
+                                    <a href="{% url 'feedback_view' %}">{% trans 'Contact' %}</a>
                                 </li>
                             </ul>
                         </div>
@@ -365,23 +376,23 @@
 
                     <div class="col-lg-3 col-sm-6">
                         <div class="single-footer-widget">
-                            <h3>Contact Us</h3>
+                            <h3>{% trans 'Contact Us' %}</h3>
 
                             <ul class="footer-contact-info">
                                 <li>
                                     <i class='bx bxs-phone'></i>
-                                    <span>Phone</span>
+                                    <span>{% trans 'Phone' %}</span>
                                     <a href="tel:407409202288">(+40) 74 0920 2288</a>
                                 </li>
                                 <li>
                                     <i class='bx bx-envelope'></i>
-                                    <span>Email</span>
+                                    <span>{% trans 'Email' %}</span>
                                     <a href="mailto:hello@orgo.com">hello@orgo.com</a>
                                 </li>
                                 <li>
                                     <i class='bx bx-map'></i>
-                                    <span>Address</span>
-                                    175 5th Ave Premium Area, New York, NY 10010, United States
+                                    <span>{% trans 'Address' %}</span>
+                                    {% trans '175 5th Ave Premium Area, New York, NY 10010, United States' %}
                                 </li>
                             </ul>
                         </div>
@@ -397,7 +408,7 @@
                         <div class="col-lg-6 col-md-6">
                             <p>
                                 <i class="far fa-copyright"></i> 
-                                Copyright @2020 Orgo. All Rights Reserved by
+                                {% trans 'Copyright @2020 Orgo. All Rights Reserved by' %}
                                 <a href="https://envytheme.com/" target="_blank">
                                     EnvyTheme
                                 </a>
@@ -407,10 +418,10 @@
                         <div class="col-lg-6 col-md-6">
                             <ul>
                                 <li>
-                                    <a href="terms-of-service.html">Terms & Conditions</a>
+                                    <a href="terms-of-service.html">{% trans 'Terms & Conditions' %}</a>
                                 </li>
                                 <li>
-                                    <a href="privacy-policy.html">Privacy Policy</a>
+                                    <a href="privacy-policy.html">{% trans 'Privacy Policy' %}</a>
                                 </li>
                             </ul>
                         </div>

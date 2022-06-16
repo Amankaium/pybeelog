@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block page %}
 
 <div class="page-banner-area item-bg3">
@@ -7,12 +7,12 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-banner-content">
-                    <h2>Checkout</h2>
+                    <h2>{% trans 'Checkout' %}</h2>
                     <ul>
                         <li>
-                            <a href="{% url 'homepage' %}">Home</a>
+                            <a href="{% url 'homepage' %}">{% trans 'Home' %}</a>
                         </li>
-                        <li>Checkout</li>
+                        <li>{% trans 'Checkout' %}</li>
                     </ul>
                 </div>
             </div>
@@ -29,35 +29,35 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="billing-details">
-                        <h3 class="title">Billing Details</h3>
+                        <h3 class="title">{% trans 'Billing Details' %}</h3>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <label>First Name <span class="required">*</span></label>
+                                    <label>{% trans 'First Name' %} <span class="required">*</span></label>
                                     <input type="text" class="form-control" name="first">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <label>Last Name <span class="required">*</span></label>
+                                    <label>{% trans 'Last Name' %} <span class="required">*</span></label>
                                     <input type="text" class="form-control" name="last">
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-6">
                                 <div class="form-group">
-                                    <label>Address <span class="required">*</span></label>
+                                    <label>{% trans 'Address' %} <span class="required">*</span></label>
                                     <input type="text" class="form-control" name="address">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="form-group">
-                                    <label>Phone <span class="required">*</span></label>
+                                    <label>{% trans 'Phone' %} <span class="required">*</span></label>
                                     <input type="text" class="form-control" name="phone">
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12">
                                 <div class="form-group">
-                                    <textarea name="notes" id="notes" cols="30" rows="5" placeholder="Order Notes" class="form-control"></textarea>
+                                    <textarea name="notes" id="notes" cols="30" rows="5" placeholder="{% trans 'Order Notes' %}" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -66,13 +66,13 @@
 
                 <div class="col-lg-6 col-md-12">
                     <div class="order-details">
-                        <h3 class="title">Your Order</h3>
+                        <h3 class="title">{% trans 'Your Order' %}</h3>
                         <div class="order-table table-responsive">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Product Name</th>
-                                        <th scope="col">Total</th>
+                                        <th scope="col">{% trans 'Product Name' %}</th>
+                                        <th scope="col">{% trans 'Total' %}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -88,7 +88,7 @@
                                     {% endfor %}
                                     <tr>
                                         <td class="total-price">
-                                            <span>Order Total</span>
+                                            <span>{% trans 'Order Total' %}</span>
                                         </td>
                                         <td class="product-subtotal">
                                             <span class="subtotal-amount">${{ cart.get_total_price }}</span>
@@ -103,16 +103,16 @@
                                 
                                 <p>
                                     <input value="card" type="radio" id="card" name="radio-group" checked>
-                                    <label for="paypal">Card pay</label>
+                                    <label for="paypal">{% trans 'Card pay' %}</label>
                                 </p>
                                 <p>
                                     <input value="cash" type="radio" id="cash-on-delivery" name="radio-group">
-                                    <label for="cash-on-delivery">Cash on Delivery</label>
+                                    <label for="cash-on-delivery">{% trans 'Cash on Delivery' %}</label>
                                 </p>
                                 
                             </div>
                             <a href="#" onclick="document.getElementById('order').submit(); return false;" class="default-btn">
-                                Place Order
+                                {% trans 'Place Order' %}
                             </a>
                         </div>
                     </div>

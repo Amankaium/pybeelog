@@ -1,19 +1,19 @@
 from django.contrib import admin
+
 from .models import *
+from modeltranslation.admin import TranslationAdmin
 
-# Register your models here.
 
-
-class FaqAdmin(admin.ModelAdmin):
+@admin.register(Faq)
+class FaqAdmin(TranslationAdmin):
     list_display = ('id', 'title')
     list_display_links = ('id', 'title')
     search_fields = ('title', 'description',)
 
 
-admin.site.register(Faq, FaqAdmin)
 
-
-class FaqFeedbackAdmin(admin.ModelAdmin):
+@admin.register(FaqFeedback)
+class FaqFeedbackAdmin(TranslationAdmin):
     list_display = ('id', 'name', 'title',
                     'email', 'created_at', 'checked')
     list_display_links = ('id', 'title')
@@ -26,4 +26,3 @@ class FaqFeedbackAdmin(admin.ModelAdmin):
                        'message', 'phone', "created_at")
 
 
-admin.site.register(FaqFeedback, FaqFeedbackAdmin)

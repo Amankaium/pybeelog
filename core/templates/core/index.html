@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block page %}
 <div class="main-banner">
     <div class="main-banner-item">
@@ -7,12 +7,12 @@
             <div class="d-table-cell">
                 <div class="container">
                     <div class="main-banner-content">
-                        <span>Take Natural Taste From Our Shop</span>
-                        <h1>Organic Food Is Good For Health</h1>
+                        <span>{% trans 'Take Natural Taste From Our Shop' %}</span>
+                        <h1>{% trans 'Organic Food Is Good For Health' %}</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                         <div class="banner-btn">
-                            <a href="{% url 'shop' %}" class="default-btn">Our Shop</a>
-                            <a href="{% url 'cart-detail' %}" class="optional-btn">Add to Cart</a>
+                            <a href="{% url 'shop' %}" class="default-btn">{% trans 'Our Shop' %}</a>
+                            <a href="{% url 'cart-detail' %}" class="optional-btn">{% trans 'Add to Cart' %}</a>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
         <section class="top-products-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
-                    <h2>Trending Products</h2>
+                    <h2>{% trans 'Trending Products' %}</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                 </div>
 
@@ -45,7 +45,7 @@
                                 </ul>
 
                                 <div class="sale">
-                                    <span>Sale</span>
+                                    <span>{% trans 'Sale' %}</span>
                                 </div>
                             </div>
 
@@ -69,7 +69,7 @@
         <section class="featured-products-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
-                    <h2>Featured  Products</h2>
+                    <h2>{% trans 'Featured  Products' %}</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                 </div>
                 
@@ -91,7 +91,7 @@
                                 </ul>
 
                                 <div class="new">
-                                    <span>New</span>
+                                    <span>{% trans 'New' %}</span>
                                 </div>
                             </div>
 
@@ -116,7 +116,7 @@
         <section class="top-products-area pt-100 pb-100">
             <div class="container">
                 <div class="section-title">
-                    <h2>Best Sellers Products</h2>
+                    <h2>{% trans 'Best Sellers Products' %}</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                 </div>
 
@@ -137,7 +137,7 @@
                             </ul>
 
                             <div class="sale">
-                                <span>Sale</span>
+                                <span>{% trans 'Sale' %}</span>
                             </div>
                         </div>
 
@@ -159,7 +159,7 @@
         <section class="blog-area pt-100 pb-70">
             <div class="container">
                 <div class="section-title">
-                    <h2>Latest Blog</h2>
+                    <h2>{% trans 'Latest Blog' %}</h2>
                 </div>
 
                 <div class="row">
@@ -177,7 +177,7 @@
                                 <h3>
                                     <a href="{% url 'post' l_blog.id %}">{{ l_blog.title }}</a>
                                 </h3>
-                                <a href="{% url 'post' l_blog.id %}" class="blog-btn">Read More +</a>
+                                <a href="{% url 'post' l_blog.id %}" class="blog-btn">{% trans 'Read More +' %}</a>
                             </div>
                         </div>
                     </div> 
@@ -193,7 +193,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="newsletter-content">
-                            <h2>Subscribe To Our Newsletter</h2>
+                            <h2>{% trans 'Subscribe To Our Newsletter' %}</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
                         </div>
                     </div>
@@ -201,8 +201,8 @@
                     <div class="col-lg-6">
                         <form method="post" action="{% url 'subscribe' %}">
                             {% csrf_token %}
-                            <input type="email" placeholder="Enter Email Address" name="email" required autocomplete="off">
-                            <button type="submit">Subscribe Now</button>
+                            <input type="email" placeholder="{% trans 'Enter Email Address' %}" name="email" required autocomplete="off">
+                            <button type="submit">{% trans 'Subscribe Now' %}</button>
                             
                             <div id="validator-newsletter" class="form-result"></div>
                         </form>

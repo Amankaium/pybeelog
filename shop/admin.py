@@ -1,7 +1,12 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
 
-from .models import *
+from .models import Product
 
 
-admin.site.register(Product)
+@admin.register(Product)
+class ProductAdmin(TranslationAdmin):
+    list_display = ('title', 'content')
+    list_display_links = ('title',)
+
 

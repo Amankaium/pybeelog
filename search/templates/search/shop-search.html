@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
     {% block page %}
-
+    {% load i18n %}
         <div class="page-banner-area">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-banner-content">
-                            <h2>Shop</h2>
+                            <h2>{% trans 'Shop' %}</h2>
                             <ul>
                                 <li>
-                                    <a href="{% url 'homepage' %}">Home</a>
+                                    <a href="{% url 'homepage' %}">{% trans 'Home' %}</a>
                                 </li>
-                                <li>Shop</li>
+                                <li>{% trans 'Shop' %}</li>
                             </ul>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
             <div class="container">
                 <div class="orgo-grid-sorting row align-items-center">
                     <div class="col-lg-6 col-md-6 result-count">
-                        <p>We found <span class="count">10</span> products available for you</p>
+                        <p>{% trans 'We found' %} <span class="count">10</span> {% trans 'products available for you' %}</p>
                     </div>
 
                     <div class="col-lg-6 col-md-6 ordering">
@@ -31,15 +31,15 @@
                         <form action="{% url 'shop' %}" method="get" id="sortProduct" class="orderby">
 
                             <div class="box sort pull-right">
-                              <span>Sort By:</span>
+                              <span>{% trans 'Sort By:' %}</span>
                               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Default
+                                {% trans 'Default' %}
                               </button>
                              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuButton">
-                                <li class="dropdown-item"><input type="submit" name="orderby" value="Default"></li>
-                                <li class="dropdown-item"><input type="submit" name="orderby" value="Popularity"></li>
-                                <li class="dropdown-item"><input type="submit" name="orderby" value="Price: low to high"></li>
-                                <li class="dropdown-item"><input type="submit" name="orderby" value="Price: high to low"></li>
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="{% trans 'Default' %}"></li>
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="{% trans 'Popularity' %}"></li>
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="{% trans 'Price: low to high' %}"></li>
+                                <li class="dropdown-item"><input type="submit" name="orderby" value="{% trans 'Price: high to low' %}"></li>
                              </ul>
                             </div>
                         </form>
@@ -71,7 +71,7 @@
                                     </li>
                                 </ul>
                                 <div class="sale">
-                                    <span>Sale</span>
+                                    <span>{% trans 'Sale' %}</span>
                                 </div>
                             </div>
                             <div class="products-content">

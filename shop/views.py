@@ -1,5 +1,6 @@
 from django.views.generic import ListView
 from django.shortcuts import render
+from cart.utils.cart import Cart
 
 from .models import *
 

@@ -1,9 +1,10 @@
 from django.contrib import admin
 
 from .models import Feedback, Subscribe
+from modeltranslation.admin import TranslationAdmin
 
-
-class ContactAdmin(admin.ModelAdmin):
+@admin.register(Feedback)
+class ContactAdmin(TranslationAdmin):
     list_display = ('id', 'first_name', 'last_name',
                     'phone', 'email','title',"created_at")
     list_display_links = ('id', 'title')
@@ -13,7 +14,6 @@ class ContactAdmin(admin.ModelAdmin):
                        'message', 'phone', 'email', "created_at")
 
 
-admin.site.register(Feedback, ContactAdmin)
 
 
 @admin.register(Subscribe)
@@ -21,5 +21,4 @@ class SubscribeAdmin(admin.ModelAdmin):
     list_display = ("email", "date")
     fields = ('email', 'date')
     readonly_fields = ('email', "date")
-
 

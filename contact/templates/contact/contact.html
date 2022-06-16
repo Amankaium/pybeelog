@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block page %}
 
  <div class="page-banner-area item-bg4">
@@ -7,12 +7,12 @@
 		<div class="d-table-cell">
 			<div class="container">
 				<div class="page-banner-content">
-					<h2>Contact</h2>
+					<h2>{% trans 'Contact' %}</h2>
 					<ul>
 						<li>
-							<a href="index.html">Home</a>
+							<a href="index.html">{% trans 'Home' %}</a>
 						</li>
-						<li>Contact</li>
+						<li>{% trans 'Contact' %}</li>
 					</ul>
 				</div>
 			</div>
@@ -30,7 +30,7 @@
 						<i class="bx bx-envelope"></i>
 					</div>
 
-					<h3>Email Here</h3>
+					<h3>{% trans 'Email Here' %}</h3>
 					<p><a href="mailto:hello@orgo.com">hello@orgo.com</a></p>
 					<p><a href="mailto:support@orgo.com">support@orgo.com</a></p>
 				</div>
@@ -43,8 +43,8 @@
 						<i class="bx bx-map"></i>
 					</div>
 
-					<h3>Location Here</h3>
-					<p>2750 Quadra Street Victoria Road, New York, Canada</p>
+					<h3>{% trans 'Location Here' %}</h3>
+					<p>{% trans '2750 Quadra Street Victoria Road, New York, Canada' %}</p>
 				</div>
 			</div>
 
@@ -54,7 +54,7 @@
 						<i class="bx bxs-phone-call"></i>
 					</div>
 
-					<h3>Call Here</h3>
+					<h3>{% trans 'Call Here' %}</h3>
 					<p><a href="tel:1234567890">+123 456 7890</a></p>
 					<p><a href="tel:2414524526">+241 452 4526</a></p>
 				</div>
@@ -74,7 +74,7 @@
 	<div class="container">
 
     <div class="section-title">
-        <h2>Ready To Get Started?</h2>
+        <h2>{% trans 'Ready To Get Started?' %}</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
     </div>
 
@@ -133,7 +133,7 @@
 
                 <div class="col-lg-12 col-md-12">
                     <button type="submit" class="default-btn">
-                        Send Message
+                        {% trans 'Send Message' %}
                     </button>
 
                     <div id="msgSubmit" class="h3 text-center hidden"></div>
@@ -150,7 +150,7 @@
 		<div class="row align-items-center">
 			<div class="col-lg-6">
 				<div class="newsletter-content">
-					<h2>Subscribe To Our Newsletter</h2>
+					<h2>{% trans 'Subscribe To Our Newsletter' %}</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua quis ipsum suspendisse</p>
 				</div>
 			</div>
@@ -158,8 +158,8 @@
 			<div class="col-lg-6">
 				<form method="post" action="{% url 'subscribe' %}">
 					{% csrf_token %}
-					<input type="email" placeholder="Enter Email Address" name="email" required autocomplete="off">
-					<button type="submit">Subscribe Now</button>
+					<input type="email" placeholder="{% trans 'Enter Email Address' %}" name="email" required autocomplete="off">
+					<button type="submit">{% trans 'Subscribe Now' %}</button>
 					
 					<div id="validator-newsletter" class="form-result"></div>
 				</form>

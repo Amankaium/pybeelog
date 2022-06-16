@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block page %}
         <div class="page-banner-area">
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
                         <div class="page-banner-content">
-                            <h2>Blog</h2>
+                            <h2>{% trans 'Blog' %}</h2>
                             <ul>
                                 <li>
-                                    <a href="{% url 'homepage' %}">Home</a>
+                                    <a href="{% url 'homepage' %}">{% trans 'Home' %}</a>
                                 </li>
-                                <li>Blog</li>
+                                <li>{% trans 'Blog' %}</li>
                             </ul>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
         <section class="blog-area pt-100 pb-100">
             <div class="container">
                 <div class="row">
-                    {% for post in posts%}
+                    {% for post in posts %}
                     <div class="col-lg-6 col-md-6">
                         <div class="single-blog-item">
                             <div class="image">
@@ -38,7 +38,7 @@
                                 <h3>
                                     <a href="{% url 'post' post.id %}">{{ post.title }}</a>
                                 </h3>
-                                <a href="{% url 'post' post.id %}" class="blog-btn">Read More +</a>
+                                <a href="{% url 'post' post.id %}" class="blog-btn">{% trans 'Read More +' %}</a>
                             </div>
                         </div>
                     </div>
