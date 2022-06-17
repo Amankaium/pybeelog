@@ -1,5 +1,3 @@
-
-
 from django.shortcuts import redirect
 
 from django.views.generic import FormView
@@ -28,7 +26,3 @@ def subscribe(request):
     sub.email = request.POST.get('email')
     sub.save()
     return redirect('homepage')
-
-
-
-

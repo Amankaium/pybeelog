@@ -4,7 +4,6 @@ from shop.models import Product
 from blog.models import Post
 
 
-
 def homepage(request):
     product = Product.objects.all().order_by('id')
     trending_products = Product.objects.all().order_by('view_count')[:8]
@@ -13,6 +12,7 @@ def homepage(request):
 
     latest_blog = Post.objects.all().order_by('visit_count')[:3]
 
-    
     return render(request, 'core/index.html', {'product': product, 'trending_products': trending_products, \
-                                                'featured_products':featured_products, 'best_seller_products': best_seller_products, 'latest_blog': latest_blog})
+                                               'featured_products': featured_products,
+                                               'best_seller_products': best_seller_products,
+                                               'latest_blog': latest_blog})

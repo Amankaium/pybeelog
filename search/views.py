@@ -5,10 +5,11 @@ from blog.models import Post
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+
 @require_POST
 def search_shop(request):
     query = request.POST.get('search')
-    
+
     results = Product.objects.filter(Q(title__icontains=query))
     paginator = Paginator(results, 8)
     page = request.GET.get('page')
@@ -16,14 +17,15 @@ def search_shop(request):
         results = paginator.page(page)
     except PageNotAnInteger:
         results = paginator.page(1)
-    except EmptyPage: 
+    except EmptyPage:
         results = paginator.page(paginator.num_pages)
-    return render(request, 'search/shop-search.html',{'products': results})
+    return render(request, 'search/shop-search.html', {'products': results})
+
 
 @require_POST
 def search_blog(request):
     query = request.POST.get('search')
-    
+
     results = Post.objects.filter(Q(title__icontains=query))
     paginator = Paginator(results, 6)
     page = request.GET.get('page')
@@ -31,13 +33,6 @@ def search_blog(request):
         results = paginator.page(page)
     except PageNotAnInteger:
         results = paginator.page(1)
-    except EmptyPage: 
+    except EmptyPage:
         results = paginator.page(paginator.num_pages)
-    return render(request, 'search/blog-search.html',{'posts': results})
-
-
-    
-    
-
-
-        
+    return render(request, 'search/blog-search.html', {'posts': results})

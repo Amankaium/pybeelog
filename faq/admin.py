@@ -11,7 +11,6 @@ class FaqAdmin(TranslationAdmin):
     search_fields = ('title', 'description',)
 
 
-
 @admin.register(FaqFeedback)
 class FaqFeedbackAdmin(TranslationAdmin):
     list_display = ('id', 'name', 'title',
@@ -24,5 +23,3 @@ class FaqFeedbackAdmin(TranslationAdmin):
               'checked')
     readonly_fields = ('name', 'email', 'title',
                        'message', 'phone', "created_at")
-
-

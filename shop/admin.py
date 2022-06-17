@@ -8,5 +8,3 @@ from .models import Product
 class ProductAdmin(TranslationAdmin):
     list_display = ('title', 'content')
     list_display_links = ('title',)
-
-
