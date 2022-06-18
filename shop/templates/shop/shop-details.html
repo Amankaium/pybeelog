@@ -46,19 +46,13 @@
                                 </div>
                                 <p>{{ product.title }}</p>
                                 <div class="product-add-to-cart">
-                                    <div class="input-counter">
-                                            <span class="minus-btn">
-                                                <i class='bx bx-minus'></i>
-                                            </span>
-                                        <input type="text" min="1" value="1">
-                                        <span class="plus-btn">
-                                                <i class='bx bx-plus'></i>
-                                            </span>
-                                    </div>
-                                    <button type="submit" class="default-btn">
-                                        {% trans 'Add to cart' %}
-                                        <span></span>
-                                    </button>
+                                    <form action="{% url 'cart_add' product.id %}" method="post">
+                                        {% csrf_token %}
+
+                                        <button type="submit" class="default-btn">
+                                            {% trans 'Add to cart' %}
+                                        </button>
+                                    </form>
                                 </div>
 
                                 <div class="buy-checkbox-btn">
