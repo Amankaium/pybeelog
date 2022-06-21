@@ -6,11 +6,10 @@ from blog.models import Post
 
 def homepage(request):
     product = Product.objects.all().order_by('id')
-    trending_products = Product.objects.all().order_by('view_count')[:8]
-    featured_products = Product.objects.all().order_by('view_count')[:8]
-    best_seller_products = Product.objects.all().order_by('view_count')[:6]
-
-    latest_blog = Post.objects.all().order_by('visit_count')[:3]
+    trending_products = Product.objects.filter(view_count__gt=10)
+    featured_products = Product.objects.filter(view_count__lt=10)
+    best_seller_products = Product.objects.filter(new_price__lt=4)
+    latest_blog = Post.objects.order_by('-pk')
 
     return render(request, 'core/index.html', {'product': product, 'trending_products': trending_products, \
                                                'featured_products': featured_products,

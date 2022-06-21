@@ -6,11 +6,11 @@ from django.utils.safestring import mark_safe
 
 @admin.register(Post)
 class PostAdmin(TranslationAdmin):
-    list_display = ('title', 'posts_text', 'get_html_img')
-    list_display_links = ('title',)
+    list_display = ('title', 'posts_text', 'posted', 'get_html_img')
+    list_display_links = ('title', 'posted')
     search_fields = ('title', 'posts_text')
-    fields = ('title', 'posts_text', 'img', 'get_html_img', 'view_count')
-    readonly_fields = ('get_html_img',)
+    fields = ('title', 'posts_text', 'posted', 'img', 'get_html_img', 'visit_count')
+    readonly_fields = ('posted', 'get_html_img',)
 
 
     def get_html_img(self, object):
