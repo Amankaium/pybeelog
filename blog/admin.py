@@ -1,9 +1,20 @@
 from django.contrib import admin
 from .models import Post
 from modeltranslation.admin import TranslationAdmin
+from django.utils.safestring import mark_safe
 
 
 @admin.register(Post)
 class PostAdmin(TranslationAdmin):
-    list_display = ('title', 'posts_text')
+    list_display = ('title', 'posts_text', 'get_html_img')
     list_display_links = ('title',)
+    search_fields = ('title', 'posts_text')
+    fields = ('title', 'posts_text', 'img', 'get_html_img', 'view_count')
+    readonly_fields = ('get_html_img',)
+
+
+    def get_html_img(self, object):
+        if object.img:
+            return mark_safe(f"<img src='{object.img.url}' width=50")
+
+    get_html_img.short_description = 'Миниатюра'
