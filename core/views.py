@@ -16,3 +16,9 @@ def homepage(request):
                                                'featured_products': featured_products,
                                                'best_seller_products': best_seller_products,
                                                'latest_blog': latest_blog})
+
+def terms_conditions(request):
+    return render(request, 'core/terms-of-service.html')
+
+def pravicy_policy(request):
+    return render(request, 'core/pravicy-policy.html')
