@@ -9,7 +9,8 @@ class Order(models.Model):
     phone = models.IntegerField()
     notes = models.TextField()
     data = models.DateTimeField(auto_now_add=True)
-    pay_method = CharField(max_length=5)
+    pay_method = models.CharField(max_length=5)
+    paid = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-data']
