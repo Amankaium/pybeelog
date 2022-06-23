@@ -60,8 +60,8 @@ def checkout_create_session(request):
             }
         ],
         mode='payment',
-        success_url='http://127.0.0.1:8000/checkout/success/',
-        cancel_url='http://127.0.0.1:8000/checkout/cancel/',)
+        success_url='http://dast4n.pythonanywhere.com/checkout/success/',
+        cancel_url='http://dast4n.pythonanywhere.com/checkout/cancel/')
         return JsonResponse({
         'id': checkout_session.id })
 
