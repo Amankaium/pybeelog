@@ -1,6 +1,5 @@
-from random import choices
 from django.db import models
-from django.forms import CharField, DateTimeField
+
 
 class Order(models.Model):
     first_name = models.CharField(max_length=15)
