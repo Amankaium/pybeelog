@@ -29,9 +29,9 @@ def product(request, id):
     product.view_count = product.view_count + 1
     product.save()
     com = product.review.filter(post_id=id)
-    feature_products = Product.objects.filter(view_count__lt=10)
+    feature_products = Product.objects.filter(view_count__lt=10)[:4]
     related_products = Product.objects.all().order_by('view_count')[:4]
-    popular_products = Product.objects.filter(view_count__gt=15)
+    popular_products = Product.objects.filter(view_count__gt=15)[:3]
 
     if request.method == "POST":
         comment = Review()
