@@ -1,9 +1,10 @@
 from django.shortcuts import render
-
+from django.views.decorators.cache import cache_page
 from shop.models import Product
 from blog.models import Post
 
 
+@cache_page(60)
 def homepage(request):
     product = Product.objects.all().order_by('id')
     trending_products = Product.objects.filter(view_count__gt=10)[:8]

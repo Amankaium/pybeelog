@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from .models import Post, Comment
+from django.views.decorators.cache import cache_page
 
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+@cache_page(60)
 def blog(request):
     posts = Post.objects.all().order_by('id')
     paginator = Paginator(posts, 6)
@@ -17,6 +19,7 @@ def blog(request):
         posts = paginator.page(paginator.num_pages)
     return render(request, 'blog/blog.html',{'posts': posts})
 
+@cache_page(60)
 def post(request,id):
     
     

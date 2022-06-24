@@ -1,6 +1,6 @@
 from django.views.generic import ListView
 from django.shortcuts import render
-
+from django.views.decorators.cache import cache_page
 from .models import *
 
 
@@ -23,7 +23,7 @@ class ShopView(ListView):
             ordering = '-new_price'
         return ordering
 
-
+@cache_page(60)
 def product(request, id):
     product = Product.objects.get(id=id)
     product.view_count = product.view_count + 1
