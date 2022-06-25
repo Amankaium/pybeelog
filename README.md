@@ -7,3 +7,6 @@ Ccылна на нашу презентацию: https://www.canva.com/design/DA
 
 
 Ccылка на DB: https://sqlspy.io/guest/schemas/uhlizwvsb2c
+
+
+Ссылка на Front: https://templates.envytheme.com/orgo/default/index.html
