@@ -183,7 +183,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-blog-item">
                             <div class="image">
-                                <a href="blog-details.html"><img src="{{ l_blog.img.url }}" alt="image"></a>
+                                <a href="{% url 'post' l_blog.id %}"><img src="{{ l_blog.img.url }}" alt="image"></a>
 
                                 <div class="date">
                                     <span>{{ l_blog.posted }}</span>
