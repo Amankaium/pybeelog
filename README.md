@@ -10,3 +10,6 @@ Ccылка на DB: https://sqlspy.io/guest/schemas/uhlizwvsb2c
 
 
 Ссылка на Front: https://templates.envytheme.com/orgo/default/index.html
+
+
+Ссылка на Trello: https://trello.com/b/3vLxrIdj/pybeelog
