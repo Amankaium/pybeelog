@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('blog', '0002_alter_post_options_rename_date_of_post_post_posted_and_more'),
     ]

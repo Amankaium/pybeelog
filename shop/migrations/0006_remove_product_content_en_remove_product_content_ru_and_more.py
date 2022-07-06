@@ -4,7 +4,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('shop', '0005_product_content_en_product_content_ru_and_more'),
     ]

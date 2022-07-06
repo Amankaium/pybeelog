@@ -4,7 +4,6 @@ from .models import FaqFeedback
 
 
 class FaqFeedbackForm(forms.ModelForm):
-
     class Meta:
         model = FaqFeedback
         fields = ('name', 'email',

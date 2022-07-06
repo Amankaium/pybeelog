@@ -1,11 +1,9 @@
 from django.shortcuts import redirect
-
+from django.views.decorators.http import require_POST
 from django.views.generic import FormView
 
-from .models import Subscribe, Feedback
 from .forms import FeedbackForm
-
-from django.views.decorators.http import require_POST
+from .models import Subscribe, Feedback
 
 
 class FeedbackView(FormView):

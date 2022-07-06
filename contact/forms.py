@@ -17,4 +17,3 @@ class FeedbackForm(forms.ModelForm):
             'title': forms.TextInput(attrs={"class": "form-control"}),
             'message': forms.Textarea(attrs={"class": "form-control"}),
         }
-

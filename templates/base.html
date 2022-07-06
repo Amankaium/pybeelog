@@ -115,26 +115,34 @@
                 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="{% url 'homepage' %}" {% if request.resolver_match.url_name == 'homepage' %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
+                            <a href="{% url 'homepage' %}"
+                               {% if request.resolver_match.url_name == 'homepage' %}class="nav-link active"
+                               {% else %}class="nav-link"{% endif %}>
                                 {% trans 'Home' %}
                             </a>
                         </li>
 
 
                         <li class="nav-item">
-                            <a href="{% url 'shop' %}" {% if request.resolver_match.url_name == 'shop' %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
+                            <a href="{% url 'shop' %}"
+                               {% if request.resolver_match.url_name == 'shop' %}class="nav-link active"
+                               {% else %}class="nav-link"{% endif %}>
                                 {% trans 'Shop' %}
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{% url 'blog' %}" {% if request.resolver_match.url_name == 'blog' %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
+                            <a href="{% url 'blog' %}"
+                               {% if request.resolver_match.url_name == 'blog' %}class="nav-link active"
+                               {% else %}class="nav-link"{% endif %}>
                                 {% trans 'Blog' %}
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a href="{% url 'feedback_view' %}" {% if request.resolver_match.url_name == 'feedback_view' %}class="nav-link active"{% else %}class="nav-link"{% endif %}>
+                            <a href="{% url 'feedback_view' %}"
+                               {% if request.resolver_match.url_name == 'feedback_view' %}class="nav-link active"
+                               {% else %}class="nav-link"{% endif %}>
                                 {% trans 'Contact' %}
                             </a>
                         </li>

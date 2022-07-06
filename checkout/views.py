@@ -2,8 +2,9 @@ import stripe
 from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render
-from .models import Order
+
 from cart.utils.cart import Cart
+from .models import Order
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -52,7 +53,7 @@ def checkout_create_session(request):
                 {
                     'price_data': {
                         'currency': 'usd',
-                        'unit_amount': int(cart.get_total_price())*100,
+                        'unit_amount': int(cart.get_total_price()) * 100,
                         'product_data': {
                             'name': 'product_cart'
                         },

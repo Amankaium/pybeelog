@@ -1,5 +1,5 @@
-from django.views.generic import ListView
 from django.views.generic import FormView
+from django.views.generic import ListView
 
 from .forms import FaqFeedbackForm
 from .models import *

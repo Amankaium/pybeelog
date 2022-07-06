@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('checkout', '0002_order_notes_en_order_notes_ru'),
     ]

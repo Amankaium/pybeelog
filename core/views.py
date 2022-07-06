@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.decorators.cache import cache_page
-from shop.models import Product
+
 from blog.models import Post
+from shop.models import Product
 
 
 @cache_page(60)
@@ -17,8 +18,10 @@ def homepage(request):
                                                'best_seller_products': best_seller_products,
                                                'latest_blog': latest_blog})
 
+
 def terms_conditions(request):
     return render(request, 'core/terms-of-service.html')
+
 
 def pravicy_policy(request):
     return render(request, 'core/pravicy-policy.html')

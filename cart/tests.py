@@ -1,5 +1,4 @@
 from django.test import TestCase, Client
-
 from django.urls import reverse
 
 from shop.models import Product

@@ -113,20 +113,20 @@
                                     </p>
 
                                 </div>
-                                
-                                
+
+
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
-                
+
             </form>
             <button id="orderbutton" class="btn btn-light">Оплатить</button>
         </div>
     </section>
-    
-    
+
+
 
     <script type="text/javascript">
         const csrftoken = document.querySelectorAll('[name=csrfmiddlewaretoken]')[0].value;
@@ -135,26 +135,26 @@
         var stripe = Stripe("pk_test_51JWQaxEklpPfluaovdLZ0VQqdPSLKngDB5bcAAj4qiJjk5qfEinHTjs1bGvaRfOvumshLJS68qnGxFIdlZjPwUDM005n752ZT2");
         var checkoutButton = document.getElementById("orderbutton");
         checkoutButton.addEventListener("click", function () {
-        fetch("{% url 'create-checkout-session' %}", {
-            method: "POST",
-            headers: {
-                'X-CSRFToken': csrftoken
-            }
-        })
-            .then(function (response) {
-            return response.json();
+            fetch("{% url 'create-checkout-session' %}", {
+                method: "POST",
+                headers: {
+                    'X-CSRFToken': csrftoken
+                }
             })
-            .then(function (session) {
-            return stripe.redirectToCheckout({ sessionId: session.id });
-            })
-            .then(function (result) {
-            if (result.error) {
-                alert(result.error.message);
-            }
-            })
-            .catch(function (error) {
-            console.error("Error:", error);
-            });
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (session) {
+                    return stripe.redirectToCheckout({sessionId: session.id});
+                })
+                .then(function (result) {
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                })
+                .catch(function (error) {
+                    console.error("Error:", error);
+                });
         });
-      </script>
+    </script>
 {% endblock %}

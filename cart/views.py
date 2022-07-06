@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views.decorators.http import require_POST
 
 from cart.utils.cart import Cart
 from shop.models import Product
-from django.views.decorators.http import require_POST
 
 
 def detail(request):

@@ -1,10 +1,11 @@
 from django.db import models
 
+
 class Post(models.Model):
     title = models.CharField(max_length=80)
     posts_text = models.TextField()
     posted = models.DateField(auto_now_add=True)
-    img = models.ImageField(upload_to = f'photos/posts/%Y/%m/%d')
+    img = models.ImageField(upload_to=f'photos/posts/%Y/%m/%d')
     visit_count = models.IntegerField(default=0)
 
 

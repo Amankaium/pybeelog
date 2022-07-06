@@ -1,5 +1,6 @@
-from shop.models import Product
 from django.conf import settings
+
+from shop.models import Product
 
 
 class Cart:
@@ -19,21 +20,22 @@ class Cart:
         for item in cart.values():
             item['total_price'] = int(item['price']) * int(item['quantity'])
             yield item
+
     def __len__(self):
         return sum(item['quantity'] for item in self.cart.values())
-        
+
     def add(self, product):
         product_id = str(product.id)
 
         if product_id not in self.cart:
             self.cart[product_id] = {'quantity': 0, 'price': str(product.new_price)}
-        
+
         self.cart.get(product_id)['quantity'] += 1
         self.save()
 
     def update(self, product, count):
         product_id = str(product.id)
-        
+
         if count == 0:
             if self.cart.get(product_id)['quantity'] > 1:
                 self.cart.get(product_id)['quantity'] -= 1
@@ -51,7 +53,6 @@ class Cart:
     def save(self):
         self.session[settings.CART_SESSION_ID] = self.cart
         self.session.modified = True
-    
 
     def get_total_price(self):
         return sum(int(item['price']) * item['quantity'] for item in self.cart.values())

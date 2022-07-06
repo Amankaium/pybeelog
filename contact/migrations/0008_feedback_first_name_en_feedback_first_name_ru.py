@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('contact', '0007_feedback_message_en_feedback_message_ru_and_more'),
     ]

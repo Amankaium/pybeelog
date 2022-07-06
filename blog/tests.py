@@ -1,6 +1,7 @@
+from time import sleep
+
 from django.test import TestCase
 from selenium import webdriver
-from time import sleep
 
 
 class SeleniumTest(TestCase):
