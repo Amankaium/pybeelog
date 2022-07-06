@@ -52,7 +52,7 @@ def checkout_create_session(request):
                 {
                     'price_data': {
                         'currency': 'usd',
-                        'unit_amount': int(cart.get_total_price()),
+                        'unit_amount': int(cart.get_total_price())*100,
                         'product_data': {
                             'name': 'product_cart'
                         },
